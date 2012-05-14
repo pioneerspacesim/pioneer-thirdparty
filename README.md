@@ -8,3 +8,12 @@ will give you everything you need in a form that is tested and supported by
 the Pioneer devs.
 
 XXX instructions
+
+
+
+
+
+Included packages
+-----------------
+
+  assimp 3.0 (git @425c929a)
