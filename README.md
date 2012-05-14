@@ -7,11 +7,19 @@ have made modifications that render them unsuitable for use in Pioneer. This
 will give you everything you need in a form that is tested and supported by
 the Pioneer devs.
 
-XXX instructions
+How to build
+------------
 
+Unix (autotools-style)
+* From the top-level directory, run "make". This will build and "install" the
+  packages into `./usr`.
+* XXX Pioneer ./configure switch
 
+Windows (MSVC):
+* XXX
 
-
+OS X (XCode):
+* XXX
 
 Included packages
 -----------------
