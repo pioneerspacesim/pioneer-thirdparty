@@ -1,7 +1,7 @@
-PACKAGES := assimp
+PACKAGES = assimp
 
-TOP := $(dir $(lastword $(MAKEFILE_LIST)))
-USR := $(TOP)/usr
+TOP = $(shell pwd)
+USR = $(TOP)/usr
 
 all: $(patsubst %,build-%,$(PACKAGES))
 
