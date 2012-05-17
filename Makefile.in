@@ -1,0 +1,16 @@
+PACKAGES = assimp
+
+TOP = $(shell pwd)
+USR = $(TOP)/usr
+
+ifeq (@CROSS@,1)
+CMAKE_ARGS = -D CMAKE_TOOLCHAIN_FILE=$(TOP)/mingw-toolchain.cmake
+endif
+
+all: $(patsubst %,build-%,$(PACKAGES))
+
+build-assimp:
+	cd assimp && \
+	cmake -D BUILD_ASSIMP_SAMPLES=OFF -D BUILD_ASSIMP_TOOLS=OFF -D ENABLE_BOOST_WORKAROUND=ON -D CMAKE_INSTALL_PREFIX=$(USR) $(CMAKE_ARGS) . && \
+	$(MAKE) && \
+	$(MAKE) install

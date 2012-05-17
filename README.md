@@ -11,14 +11,18 @@ How to build
 ------------
 
 Unix (autotools-style)
-* From the top-level directory, run "make". This will build and "install" the
-  packages into `./usr`.
+* autoconf
+* ./configure
+* make
 * XXX Pioneer ./configure switch
 
 Windows (MSVC):
 * XXX
 
 OS X (XCode):
+* XXX
+
+Windows (MinGW cross-build)
 * XXX
 
 Included packages
