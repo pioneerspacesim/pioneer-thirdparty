@@ -3,8 +3,8 @@ PACKAGES = assimp
 TOP = $(shell pwd)
 USR = $(TOP)/usr
 
-ifeq (@CROSS@,1)
-CMAKE_ARGS = -D CMAKE_TOOLCHAIN_FILE=$(TOP)/mingw-toolchain.cmake
+ifeq (@MXE_CROSS@,yes)
+CMAKE_ARGS = -D CMAKE_TOOLCHAIN_FILE=@MXE_CMAKE_TOOLCHAIN_FILE@
 endif
 
 all: $(patsubst %,build-%,$(PACKAGES))
