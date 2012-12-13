@@ -7,10 +7,15 @@ ifeq (@MXE_CROSS@,yes)
 CMAKE_ARGS = -DBUILD_STATIC_LIB=ON -D CMAKE_TOOLCHAIN_FILE=@MXE_CMAKE_TOOLCHAIN_FILE@
 endif
 
-all: $(patsubst %,build-%,$(PACKAGES))
+all: $(PACKAGES)
+clean: $(patsubst %,clean-%,$(PACKAGES))
 
-build-assimp:
+assimp:
 	cd source/assimp && \
 	cmake -D BUILD_ASSIMP_SAMPLES=OFF -D BUILD_ASSIMP_TOOLS=OFF -D ENABLE_BOOST_WORKAROUND=ON -D CMAKE_INSTALL_PREFIX=$(USR) $(CMAKE_ARGS) . && \
 	$(MAKE) && \
 	$(MAKE) install
+
+clean-assimp:
+	cd source/assimp && \
+	$(MAKE) clean
