@@ -1,4 +1,4 @@
-PACKAGES = assimp sdl2
+PACKAGES = assimp sdl2 sdl2_image
 
 ifneq (@MXE_CROSS@,yes)
 PACKAGES += glew
@@ -60,6 +60,12 @@ sdl2:
 	$(MAKE) && \
 	$(MAKE) install
 
+sdl2_image:
+	cd source/sdl2_image && \
+	./configure --prefix=$(USR) && \
+	$(MAKE) && \
+	$(MAKE) install
+
 clean-assimp:
 	cd source/assimp && \
 	$(MAKE) clean
@@ -70,4 +76,8 @@ clean-glew:
 
 clean-sdl2:
 	cd source/sdl2 && \
+	$(MAKE) clean
+
+clean-sdl2_image:
+	cd source/sdl2_image && \
 	$(MAKE) clean
