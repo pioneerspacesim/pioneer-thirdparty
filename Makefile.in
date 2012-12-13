@@ -1,4 +1,4 @@
-PACKAGES = assimp
+PACKAGES = assimp sdl2
 
 ifneq (@MXE_CROSS@,yes)
 PACKAGES += glew
@@ -54,6 +54,12 @@ glew:
 	$(INSTALL) -d '$(USR)/include/GL' && \
 	$(INSTALL) -m644 'include/GL/glew.h' '$(USR)/include/GL/'
 
+sdl2:
+	cd source/sdl2 && \
+	./configure --prefix=$(USR) && \
+	$(MAKE) && \
+	$(MAKE) install
+
 clean-assimp:
 	cd source/assimp && \
 	$(MAKE) clean
@@ -61,3 +67,7 @@ clean-assimp:
 clean-glew:
 	cd source/glew && \
 	rm -f glew.o libGLEW.a glew.pc
+
+clean-sdl2:
+	cd source/sdl2 && \
+	$(MAKE) clean
