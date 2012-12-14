@@ -12,7 +12,9 @@ CMAKE_ARGS += -DBUILD_STATIC_LIB=ON
 endif
 
 all: $(PACKAGES)
+
 clean: $(patsubst %,clean-%,$(PACKAGES))
+	rm -rf $(USR)
 
 assimp:
 	cd source/assimp && \
