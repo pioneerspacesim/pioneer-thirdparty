@@ -2,6 +2,9 @@ dnl setup
 AC_PREREQ(2.59)
 AC_INIT([pioneer-thirdparty], [0.1], [pioneer@pioneerspacesim.net])
 
+dnl static linking
+AC_ARG_ENABLE([static], AS_HELP_STRING([--enable-static], [Build libs for static linking]), [P3P_BUILD_STATIC=$enableval], [P3P_BUILD_STATIC=])
+
 dnl detect and setup mxe
 AC_DEFUN([MXE_SETUP], [
     AC_ARG_WITH([mxe], AS_HELP_STRING([--with-mxe], [Path to MXE MinGW environment for cross-building]), [MXE_BASE=$withval], [MXE_BASE=])
@@ -24,6 +27,7 @@ AC_DEFUN([MXE_SETUP], [
 		host_alias=i686-pc-mingw32
 		ac_tool_prefix=$host_alias-
 		cross_compiling=yes
+		P3P_BUILD_STATIC=yes
 	fi
 	AC_SUBST(MXE_BASE)
 	AC_SUBST(MXE_CROSS)
@@ -32,6 +36,8 @@ AC_DEFUN([MXE_SETUP], [
 ])
 
 MXE_SETUP
+
+AC_SUBST(P3P_BUILD_STATIC)
 
 dnl normalise build and host triples
 AC_CANONICAL_BUILD
