@@ -46,6 +46,17 @@ AC_CANONICAL_HOST
 dnl initial compiler. we abort if this isn't found
 AC_PROG_CC
 
+dnl other standard programs
+AC_PROG_RANLIB
+AC_PROG_SED
+AC_PROG_INSTALL
+
+dnl autoconf doesn't have a AC_PROG_AR, so we make one
+AN_MAKEVAR([AR], [AC_PROG_AR])
+AN_PROGRAM([ar], [AC_PROG_AR])
+AC_DEFUN([AC_PROG_AR], [AC_CHECK_TOOL([AR], [ar], [ar])])
+AC_PROG_AR
+
 dnl C++ compiler
 AC_PROG_CXX
 if test "x$CXX" = "x" ; then
