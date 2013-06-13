@@ -1,4 +1,8 @@
-PACKAGES = assimp glew
+PACKAGES = assimp
+
+ifneq (@MXE_CROSS@,yes)
+PACKAGES += glew
+endif
 
 TOP = $(shell pwd)
 USR = $(TOP)/usr
