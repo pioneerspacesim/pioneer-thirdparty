@@ -1,7 +1,7 @@
-PACKAGES = assimp sdl2 sdl2_image
+PACKAGES = assimp
 
 ifneq (@MXE_CROSS@,yes)
-PACKAGES += glew
+PACKAGES += glew sdl2 sdl2_image
 endif
 
 TOP = $(shell pwd)
