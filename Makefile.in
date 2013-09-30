@@ -56,13 +56,15 @@ glew:
 
 sdl2:
 	cd source/sdl2 && \
-	./configure --prefix=$(USR) && \
+	./autogen.sh && \
+	./configure --prefix=$(USR) --enable-static --disable-shared && \
 	$(MAKE) && \
 	$(MAKE) install
 
 sdl2_image:
 	cd source/sdl2_image && \
-	./configure --prefix=$(USR) && \
+	./autogen.sh && \
+	./configure --prefix=$(USR) --enable-static --disable-shared && \
 	$(MAKE) && \
 	$(MAKE) install
 
