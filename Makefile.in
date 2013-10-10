@@ -1,7 +1,7 @@
 PACKAGES = assimp
 
 ifneq (@MXE_CROSS@,yes)
-PACKAGES += glew sdl2 sdl2_image
+PACKAGES += sdl2 sdl2_image
 endif
 
 TOP = $(shell pwd)
@@ -33,27 +33,6 @@ assimp:
 	$(MAKE) && \
 	$(MAKE) install
 
-glew:
-	cd source/glew && \
-	$(CC) -O3 -DGLEW_NO_GLU -DGLEW_STATIC -Iinclude -c -o glew.o src/glew.c && \
-	$(AR) cr libGLEW.a glew.o && \
-	$(RANLIB) libGLEW.a && \
-	$(SED) \
-		-e "s|@prefix\@|$(USR)|g" \
-		-e "s|@libdir\@|$(USR)/lib|g" \
-		-e "s|@exec_prefix\@|$(USR)/bin|g" \
-		-e "s|@includedir\@|$(USR)/include/GL|g" \
-		-e "s|@version\@|1.9.0|g" \
-		-e "s|@cflags\@|-DGLEW_STATIC|g" \
-		-e "s|-l@libname\@|-lGLEW -lGL|g" \
-		< glew.pc.in > glew.pc && \
-	$(INSTALL) -d '$(USR)/lib' && \
-	$(INSTALL) -m644 'libGLEW.a' '$(USR)/lib/' && \
-	$(INSTALL) -d '$(USR)/lib/pkgconfig' && \
-	$(INSTALL) -m644 'glew.pc' '$(USR)/lib/pkgconfig/' && \
-	$(INSTALL) -d '$(USR)/include/GL' && \
-	$(INSTALL) -m644 'include/GL/glew.h' '$(USR)/include/GL/'
-
 sdl2:
 	cd source/sdl2 && \
 	./autogen.sh && \
@@ -71,10 +50,6 @@ sdl2_image:
 clean-assimp:
 	cd source/assimp && \
 	$(MAKE) clean
-
-clean-glew:
-	cd source/glew && \
-	rm -f glew.o libGLEW.a glew.pc
 
 clean-sdl2:
 	cd source/sdl2 && \
