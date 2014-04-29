@@ -30,8 +30,8 @@ namespace sigc {
 template <typename T_slot>
 struct slot_iterator
 {
-  typedef size_t                          size_type;
-  typedef ptrdiff_t                       difference_type;
+  typedef std::size_t                     size_type;
+  typedef std::ptrdiff_t                  difference_type;
   typedef std::bidirectional_iterator_tag iterator_category;
 
   typedef T_slot  slot_type;
@@ -96,8 +96,8 @@ struct slot_iterator
 template <typename T_slot>
 struct slot_const_iterator
 {
-  typedef size_t                          size_type;
-  typedef ptrdiff_t                       difference_type;
+  typedef std::size_t                     size_type;
+  typedef std::ptrdiff_t                  difference_type;
   typedef std::bidirectional_iterator_tag iterator_category;
 
   typedef T_slot        slot_type;
@@ -179,10 +179,10 @@ struct slot_list
   typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
   #else
   typedef std::reverse_iterator<iterator, std::random_access_iterator_tag,
-                                int, int&, int*, ptrdiff_t> reverse_iterator;
+                                int, int&, int*, std::ptrdiff_t> reverse_iterator;
 
   typedef std::reverse_iterator<const_iterator, std::random_access_iterator_tag,
-                                int, const int&, const int*, ptrdiff_t> const_reverse_iterator;
+                                int, const int&, const int*, std::ptrdiff_t> const_reverse_iterator;
   #endif /* SIGC_HAVE_SUN_REVERSE_ITERATOR */
 
 
@@ -273,8 +273,8 @@ namespace internal {
 template <class T_emitter, class T_result = typename T_emitter::result_type>
 struct slot_iterator_buf
 {
-  typedef size_t                           size_type;
-  typedef ptrdiff_t                        difference_type;
+  typedef std::size_t                      size_type;
+  typedef std::ptrdiff_t                   difference_type;
   typedef std::bidirectional_iterator_tag  iterator_category;
 
   //These are needed just to make this a proper C++ iterator, 
@@ -356,8 +356,8 @@ private:
 template <class T_emitter>
 struct slot_iterator_buf<T_emitter, void>
 {
-  typedef size_t                           size_type;
-  typedef ptrdiff_t                        difference_type;
+  typedef std::size_t                      size_type;
+  typedef std::ptrdiff_t                   difference_type;
   typedef std::bidirectional_iterator_tag  iterator_category;
 
   typedef T_emitter                        emitter_type;
@@ -427,8 +427,8 @@ private:
 template <class T_emitter, class T_result = typename T_emitter::result_type>
 struct slot_reverse_iterator_buf
 {
-  typedef size_t                           size_type;
-  typedef ptrdiff_t                        difference_type;
+  typedef std::size_t                      size_type;
+  typedef std::ptrdiff_t                   difference_type;
   typedef std::bidirectional_iterator_tag  iterator_category;
 
   //These are needed just to make this a proper C++ iterator, 
@@ -512,8 +512,8 @@ private:
 template <class T_emitter>
 struct slot_reverse_iterator_buf<T_emitter, void>
 {
-  typedef size_t                           size_type;
-  typedef ptrdiff_t                        difference_type;
+  typedef std::size_t                      size_type;
+  typedef std::ptrdiff_t                   difference_type;
   typedef std::bidirectional_iterator_tag  iterator_category;
 
   typedef T_emitter                        emitter_type;
@@ -584,7 +584,7 @@ private:
 /** Abstracts signal emission.
  * This template implements the emit() function of signal0.
  * Template specializations are available to optimize signal
- * emission when no accumulator is used, i.e. the template
+ * emission when no accumulator is used, for example when the template
  * argument @e T_accumulator is @p nil.
  */
 template <class T_return, class T_accumulator>
@@ -717,7 +717,7 @@ struct signal_emit0<T_return, nil>
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
         typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                       slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                       slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
 
         temp_slot_list slots(impl->slots_);
@@ -787,7 +787,7 @@ struct signal_emit0<void, nil>
       typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
       typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                     slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                     slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
       for (reverse_iterator_type it = reverse_iterator_type(slots.end()); it != reverse_iterator_type(slots.begin()); ++it)
         {
@@ -801,7 +801,7 @@ struct signal_emit0<void, nil>
 /** Abstracts signal emission.
  * This template implements the emit() function of signal1.
  * Template specializations are available to optimize signal
- * emission when no accumulator is used, i.e. the template
+ * emission when no accumulator is used, for example when the template
  * argument @e T_accumulator is @p nil.
  */
 template <class T_return, class T_arg1, class T_accumulator>
@@ -949,7 +949,7 @@ struct signal_emit1<T_return, T_arg1, nil>
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
         typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                       slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                       slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
 
         temp_slot_list slots(impl->slots_);
@@ -1023,7 +1023,7 @@ struct signal_emit1<void, T_arg1, nil>
       typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
       typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                     slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                     slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
       for (reverse_iterator_type it = reverse_iterator_type(slots.end()); it != reverse_iterator_type(slots.begin()); ++it)
         {
@@ -1037,7 +1037,7 @@ struct signal_emit1<void, T_arg1, nil>
 /** Abstracts signal emission.
  * This template implements the emit() function of signal2.
  * Template specializations are available to optimize signal
- * emission when no accumulator is used, i.e. the template
+ * emission when no accumulator is used, for example when the template
  * argument @e T_accumulator is @p nil.
  */
 template <class T_return, class T_arg1, class T_arg2, class T_accumulator>
@@ -1190,7 +1190,7 @@ struct signal_emit2<T_return, T_arg1, T_arg2, nil>
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
         typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                       slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                       slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
 
         temp_slot_list slots(impl->slots_);
@@ -1266,7 +1266,7 @@ struct signal_emit2<void, T_arg1, T_arg2, nil>
       typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
       typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                     slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                     slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
       for (reverse_iterator_type it = reverse_iterator_type(slots.end()); it != reverse_iterator_type(slots.begin()); ++it)
         {
@@ -1280,7 +1280,7 @@ struct signal_emit2<void, T_arg1, T_arg2, nil>
 /** Abstracts signal emission.
  * This template implements the emit() function of signal3.
  * Template specializations are available to optimize signal
- * emission when no accumulator is used, i.e. the template
+ * emission when no accumulator is used, for example when the template
  * argument @e T_accumulator is @p nil.
  */
 template <class T_return, class T_arg1, class T_arg2, class T_arg3, class T_accumulator>
@@ -1438,7 +1438,7 @@ struct signal_emit3<T_return, T_arg1, T_arg2, T_arg3, nil>
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
         typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                       slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                       slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
 
         temp_slot_list slots(impl->slots_);
@@ -1516,7 +1516,7 @@ struct signal_emit3<void, T_arg1, T_arg2, T_arg3, nil>
       typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
       typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                     slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                     slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
       for (reverse_iterator_type it = reverse_iterator_type(slots.end()); it != reverse_iterator_type(slots.begin()); ++it)
         {
@@ -1530,7 +1530,7 @@ struct signal_emit3<void, T_arg1, T_arg2, T_arg3, nil>
 /** Abstracts signal emission.
  * This template implements the emit() function of signal4.
  * Template specializations are available to optimize signal
- * emission when no accumulator is used, i.e. the template
+ * emission when no accumulator is used, for example when the template
  * argument @e T_accumulator is @p nil.
  */
 template <class T_return, class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_accumulator>
@@ -1693,7 +1693,7 @@ struct signal_emit4<T_return, T_arg1, T_arg2, T_arg3, T_arg4, nil>
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
         typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                       slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                       slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
 
         temp_slot_list slots(impl->slots_);
@@ -1773,7 +1773,7 @@ struct signal_emit4<void, T_arg1, T_arg2, T_arg3, T_arg4, nil>
       typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
       typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                     slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                     slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
       for (reverse_iterator_type it = reverse_iterator_type(slots.end()); it != reverse_iterator_type(slots.begin()); ++it)
         {
@@ -1787,7 +1787,7 @@ struct signal_emit4<void, T_arg1, T_arg2, T_arg3, T_arg4, nil>
 /** Abstracts signal emission.
  * This template implements the emit() function of signal5.
  * Template specializations are available to optimize signal
- * emission when no accumulator is used, i.e. the template
+ * emission when no accumulator is used, for example when the template
  * argument @e T_accumulator is @p nil.
  */
 template <class T_return, class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_arg5, class T_accumulator>
@@ -1955,7 +1955,7 @@ struct signal_emit5<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, nil>
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
         typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                       slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                       slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
 
         temp_slot_list slots(impl->slots_);
@@ -2037,7 +2037,7 @@ struct signal_emit5<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, nil>
       typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
       typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                     slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                     slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
       for (reverse_iterator_type it = reverse_iterator_type(slots.end()); it != reverse_iterator_type(slots.begin()); ++it)
         {
@@ -2051,7 +2051,7 @@ struct signal_emit5<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, nil>
 /** Abstracts signal emission.
  * This template implements the emit() function of signal6.
  * Template specializations are available to optimize signal
- * emission when no accumulator is used, i.e. the template
+ * emission when no accumulator is used, for example when the template
  * argument @e T_accumulator is @p nil.
  */
 template <class T_return, class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_arg5, class T_arg6, class T_accumulator>
@@ -2224,7 +2224,7 @@ struct signal_emit6<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, ni
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
         typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                       slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                       slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
 
         temp_slot_list slots(impl->slots_);
@@ -2308,7 +2308,7 @@ struct signal_emit6<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, nil>
       typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
       typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                     slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                     slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
       for (reverse_iterator_type it = reverse_iterator_type(slots.end()); it != reverse_iterator_type(slots.begin()); ++it)
         {
@@ -2322,7 +2322,7 @@ struct signal_emit6<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, nil>
 /** Abstracts signal emission.
  * This template implements the emit() function of signal7.
  * Template specializations are available to optimize signal
- * emission when no accumulator is used, i.e. the template
+ * emission when no accumulator is used, for example when the template
  * argument @e T_accumulator is @p nil.
  */
 template <class T_return, class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_arg5, class T_arg6, class T_arg7, class T_accumulator>
@@ -2500,7 +2500,7 @@ struct signal_emit7<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
         typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                       slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                       slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
 
         temp_slot_list slots(impl->slots_);
@@ -2586,7 +2586,7 @@ struct signal_emit7<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7
       typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
       typedef std::reverse_iterator<signal_impl::iterator_type, std::random_access_iterator_tag,
-                                     slot_base, slot_base&, slot_base*, ptrdiff_t> reverse_iterator_type;
+                                     slot_base, slot_base&, slot_base*, std::ptrdiff_t> reverse_iterator_type;
 #endif
       for (reverse_iterator_type it = reverse_iterator_type(slots.end()); it != reverse_iterator_type(slots.begin()); ++it)
         {
@@ -2604,7 +2604,7 @@ struct signal_emit7<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7
  * signal0 can be used to connect() slots that are invoked
  * during subsequent calls to emit(). Any functor or slot
  * can be passed into connect(). It is converted into a slot
- * implicitely.
+ * implicitly.
  *
  * If you want to connect one signal to another, use make_slot()
  * to retrieve a functor that emits the signal when invoked.
@@ -2612,7 +2612,7 @@ struct signal_emit7<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7
  * Be careful if you directly pass one signal into the connect()
  * method of another: a shallow copy of the signal is made and
  * the signal's slots are not disconnected until both the signal
- * and its clone are destroyed which is probably not what you want!
+ * and its clone are destroyed, which is probably not what you want!
  *
  * An STL-style list interface for the signal's list of slots
  * can be retrieved with slots(). This interface supports
@@ -2620,7 +2620,9 @@ struct signal_emit7<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7
  *
  * The following template arguments are used:
  * - @e T_return The desired return type for the emit() function (may be overridden by the accumulator).
- * - @e T_accumulator The accumulator type used for emission. The default @p nil means that no accumulator should be used, i.e. signal emission returns the return value of the last slot invoked.
+ * - @e T_accumulator The accumulator type used for emission. The default
+ * @p nil means that no accumulator should be used, for example if signal
+ * emission returns the return value of the last slot invoked.
  *
  * You should use the more convenient unnumbered sigc::signal template.
  *
@@ -2708,7 +2710,7 @@ public:
  * signal1 can be used to connect() slots that are invoked
  * during subsequent calls to emit(). Any functor or slot
  * can be passed into connect(). It is converted into a slot
- * implicitely.
+ * implicitly.
  *
  * If you want to connect one signal to another, use make_slot()
  * to retrieve a functor that emits the signal when invoked.
@@ -2716,7 +2718,7 @@ public:
  * Be careful if you directly pass one signal into the connect()
  * method of another: a shallow copy of the signal is made and
  * the signal's slots are not disconnected until both the signal
- * and its clone are destroyed which is probably not what you want!
+ * and its clone are destroyed, which is probably not what you want!
  *
  * An STL-style list interface for the signal's list of slots
  * can be retrieved with slots(). This interface supports
@@ -2725,7 +2727,9 @@ public:
  * The following template arguments are used:
  * - @e T_return The desired return type for the emit() function (may be overridden by the accumulator).
  * - @e T_arg1 Argument type used in the definition of emit().
- * - @e T_accumulator The accumulator type used for emission. The default @p nil means that no accumulator should be used, i.e. signal emission returns the return value of the last slot invoked.
+ * - @e T_accumulator The accumulator type used for emission. The default
+ * @p nil means that no accumulator should be used, for example if signal
+ * emission returns the return value of the last slot invoked.
  *
  * You should use the more convenient unnumbered sigc::signal template.
  *
@@ -2814,7 +2818,7 @@ public:
  * signal2 can be used to connect() slots that are invoked
  * during subsequent calls to emit(). Any functor or slot
  * can be passed into connect(). It is converted into a slot
- * implicitely.
+ * implicitly.
  *
  * If you want to connect one signal to another, use make_slot()
  * to retrieve a functor that emits the signal when invoked.
@@ -2822,7 +2826,7 @@ public:
  * Be careful if you directly pass one signal into the connect()
  * method of another: a shallow copy of the signal is made and
  * the signal's slots are not disconnected until both the signal
- * and its clone are destroyed which is probably not what you want!
+ * and its clone are destroyed, which is probably not what you want!
  *
  * An STL-style list interface for the signal's list of slots
  * can be retrieved with slots(). This interface supports
@@ -2832,7 +2836,9 @@ public:
  * - @e T_return The desired return type for the emit() function (may be overridden by the accumulator).
  * - @e T_arg1 Argument type used in the definition of emit().
  * - @e T_arg2 Argument type used in the definition of emit().
- * - @e T_accumulator The accumulator type used for emission. The default @p nil means that no accumulator should be used, i.e. signal emission returns the return value of the last slot invoked.
+ * - @e T_accumulator The accumulator type used for emission. The default
+ * @p nil means that no accumulator should be used, for example if signal
+ * emission returns the return value of the last slot invoked.
  *
  * You should use the more convenient unnumbered sigc::signal template.
  *
@@ -2922,7 +2928,7 @@ public:
  * signal3 can be used to connect() slots that are invoked
  * during subsequent calls to emit(). Any functor or slot
  * can be passed into connect(). It is converted into a slot
- * implicitely.
+ * implicitly.
  *
  * If you want to connect one signal to another, use make_slot()
  * to retrieve a functor that emits the signal when invoked.
@@ -2930,7 +2936,7 @@ public:
  * Be careful if you directly pass one signal into the connect()
  * method of another: a shallow copy of the signal is made and
  * the signal's slots are not disconnected until both the signal
- * and its clone are destroyed which is probably not what you want!
+ * and its clone are destroyed, which is probably not what you want!
  *
  * An STL-style list interface for the signal's list of slots
  * can be retrieved with slots(). This interface supports
@@ -2941,7 +2947,9 @@ public:
  * - @e T_arg1 Argument type used in the definition of emit().
  * - @e T_arg2 Argument type used in the definition of emit().
  * - @e T_arg3 Argument type used in the definition of emit().
- * - @e T_accumulator The accumulator type used for emission. The default @p nil means that no accumulator should be used, i.e. signal emission returns the return value of the last slot invoked.
+ * - @e T_accumulator The accumulator type used for emission. The default
+ * @p nil means that no accumulator should be used, for example if signal
+ * emission returns the return value of the last slot invoked.
  *
  * You should use the more convenient unnumbered sigc::signal template.
  *
@@ -3032,7 +3040,7 @@ public:
  * signal4 can be used to connect() slots that are invoked
  * during subsequent calls to emit(). Any functor or slot
  * can be passed into connect(). It is converted into a slot
- * implicitely.
+ * implicitly.
  *
  * If you want to connect one signal to another, use make_slot()
  * to retrieve a functor that emits the signal when invoked.
@@ -3040,7 +3048,7 @@ public:
  * Be careful if you directly pass one signal into the connect()
  * method of another: a shallow copy of the signal is made and
  * the signal's slots are not disconnected until both the signal
- * and its clone are destroyed which is probably not what you want!
+ * and its clone are destroyed, which is probably not what you want!
  *
  * An STL-style list interface for the signal's list of slots
  * can be retrieved with slots(). This interface supports
@@ -3052,7 +3060,9 @@ public:
  * - @e T_arg2 Argument type used in the definition of emit().
  * - @e T_arg3 Argument type used in the definition of emit().
  * - @e T_arg4 Argument type used in the definition of emit().
- * - @e T_accumulator The accumulator type used for emission. The default @p nil means that no accumulator should be used, i.e. signal emission returns the return value of the last slot invoked.
+ * - @e T_accumulator The accumulator type used for emission. The default
+ * @p nil means that no accumulator should be used, for example if signal
+ * emission returns the return value of the last slot invoked.
  *
  * You should use the more convenient unnumbered sigc::signal template.
  *
@@ -3144,7 +3154,7 @@ public:
  * signal5 can be used to connect() slots that are invoked
  * during subsequent calls to emit(). Any functor or slot
  * can be passed into connect(). It is converted into a slot
- * implicitely.
+ * implicitly.
  *
  * If you want to connect one signal to another, use make_slot()
  * to retrieve a functor that emits the signal when invoked.
@@ -3152,7 +3162,7 @@ public:
  * Be careful if you directly pass one signal into the connect()
  * method of another: a shallow copy of the signal is made and
  * the signal's slots are not disconnected until both the signal
- * and its clone are destroyed which is probably not what you want!
+ * and its clone are destroyed, which is probably not what you want!
  *
  * An STL-style list interface for the signal's list of slots
  * can be retrieved with slots(). This interface supports
@@ -3165,7 +3175,9 @@ public:
  * - @e T_arg3 Argument type used in the definition of emit().
  * - @e T_arg4 Argument type used in the definition of emit().
  * - @e T_arg5 Argument type used in the definition of emit().
- * - @e T_accumulator The accumulator type used for emission. The default @p nil means that no accumulator should be used, i.e. signal emission returns the return value of the last slot invoked.
+ * - @e T_accumulator The accumulator type used for emission. The default
+ * @p nil means that no accumulator should be used, for example if signal
+ * emission returns the return value of the last slot invoked.
  *
  * You should use the more convenient unnumbered sigc::signal template.
  *
@@ -3258,7 +3270,7 @@ public:
  * signal6 can be used to connect() slots that are invoked
  * during subsequent calls to emit(). Any functor or slot
  * can be passed into connect(). It is converted into a slot
- * implicitely.
+ * implicitly.
  *
  * If you want to connect one signal to another, use make_slot()
  * to retrieve a functor that emits the signal when invoked.
@@ -3266,7 +3278,7 @@ public:
  * Be careful if you directly pass one signal into the connect()
  * method of another: a shallow copy of the signal is made and
  * the signal's slots are not disconnected until both the signal
- * and its clone are destroyed which is probably not what you want!
+ * and its clone are destroyed, which is probably not what you want!
  *
  * An STL-style list interface for the signal's list of slots
  * can be retrieved with slots(). This interface supports
@@ -3280,7 +3292,9 @@ public:
  * - @e T_arg4 Argument type used in the definition of emit().
  * - @e T_arg5 Argument type used in the definition of emit().
  * - @e T_arg6 Argument type used in the definition of emit().
- * - @e T_accumulator The accumulator type used for emission. The default @p nil means that no accumulator should be used, i.e. signal emission returns the return value of the last slot invoked.
+ * - @e T_accumulator The accumulator type used for emission. The default
+ * @p nil means that no accumulator should be used, for example if signal
+ * emission returns the return value of the last slot invoked.
  *
  * You should use the more convenient unnumbered sigc::signal template.
  *
@@ -3374,7 +3388,7 @@ public:
  * signal7 can be used to connect() slots that are invoked
  * during subsequent calls to emit(). Any functor or slot
  * can be passed into connect(). It is converted into a slot
- * implicitely.
+ * implicitly.
  *
  * If you want to connect one signal to another, use make_slot()
  * to retrieve a functor that emits the signal when invoked.
@@ -3382,7 +3396,7 @@ public:
  * Be careful if you directly pass one signal into the connect()
  * method of another: a shallow copy of the signal is made and
  * the signal's slots are not disconnected until both the signal
- * and its clone are destroyed which is probably not what you want!
+ * and its clone are destroyed, which is probably not what you want!
  *
  * An STL-style list interface for the signal's list of slots
  * can be retrieved with slots(). This interface supports
@@ -3397,7 +3411,9 @@ public:
  * - @e T_arg5 Argument type used in the definition of emit().
  * - @e T_arg6 Argument type used in the definition of emit().
  * - @e T_arg7 Argument type used in the definition of emit().
- * - @e T_accumulator The accumulator type used for emission. The default @p nil means that no accumulator should be used, i.e. signal emission returns the return value of the last slot invoked.
+ * - @e T_accumulator The accumulator type used for emission. The default
+ * @p nil means that no accumulator should be used, for example if signal
+ * emission returns the return value of the last slot invoked.
  *
  * You should use the more convenient unnumbered sigc::signal template.
  *
@@ -3502,7 +3518,7 @@ public:
  * Be careful if you directly pass one signal into the connect()
  * method of another: a shallow copy of the signal is made and
  * the signal's slots are not disconnected until both the signal
- * and its clone are destroyed which is probably not what you want!
+ * and its clone are destroyed, which is probably not what you want!
  *
  * An STL-style list interface for the signal's list of slots
  * can be retrieved with slots(). This interface supports
@@ -3522,12 +3538,12 @@ public:
  * To specify an accumulator type the nested class signal::accumulated can be used.
  *
  * @par Example:
- *   @code
- *   void foo(int) {}
- *   sigc::signal<void, long> sig;
- *   sig.connect(sigc::ptr_fun(&foo));
- *   sig.emit(19);
- *   @endcode
+ * @code
+ * void foo(int) {}
+ * sigc::signal<void, long> sig;
+ * sig.connect(sigc::ptr_fun(&foo));
+ * sig.emit(19);
+ * @endcode
  *
  * @ingroup signal
  */
@@ -3548,38 +3564,38 @@ public:
    * The accumulator must define its return value as @p result_type.
    * 
    * @par Example 1:
-   *   This accumulator calculates the arithmetic mean value:
-   *   @code
-   *   struct arithmetic_mean_accumulator
+   * This accumulator calculates the arithmetic mean value:
+   * @code
+   * struct arithmetic_mean_accumulator
+   * {
+   *   typedef double result_type;
+   *   template<typename T_iterator>
+   *   result_type operator()(T_iterator first, T_iterator last) const
    *   {
-   *     typedef double result_type;
-   *     template<typename T_iterator>
-   *     result_type operator()(T_iterator first, T_iterator last) const
-   *     {
-   *       result_type value_ = 0;
-   *       int n_ = 0;
-   *       for (; first != last; ++first, ++n_)
-   *         value_ += *first;
-   *       return value_ / n_;
-   *     }
-   *   };
-   *   @endcode
+   *     result_type value_ = 0;
+   *     int n_ = 0;
+   *     for (; first != last; ++first, ++n_)
+   *       value_ += *first;
+   *     return value_ / n_;
+   *   }
+   * };
+   * @endcode
    *
    * @par Example 2:
-   *   This accumulator stops signal emission when a slot returns zero:
-   *   @code
-   *   struct interruptable_accumulator
+   * This accumulator stops signal emission when a slot returns zero:
+   * @code
+   * struct interruptable_accumulator
+   * {
+   *   typedef bool result_type;
+   *   template<typename T_iterator>
+   *   result_type operator()(T_iterator first, T_iterator last) const
    *   {
-   *     typedef bool result_type;
-   *     template<typename T_iterator>
-   *     result_type operator()(T_iterator first, T_iterator last) const
-   *     {
-   *       for (; first != last; ++first, ++n_)
-   *         if (!*first) return false;
-   *       return true;
-   *     }
-   *   };
-   *   @endcode
+   *     for (; first != last; ++first, ++n_)
+   *       if (!*first) return false;
+   *     return true;
+   *   }
+   * };
+   * @endcode
    *
    * @ingroup signal
    */

@@ -19,40 +19,40 @@ namespace sigc {
  * The type of the parameter can optionally be specified if not deduced.
  *
  * @par Examples:
- *   @code
- *   void foo(int, int);
- *   // single argument hiding ...
- *   sigc::hide(&foo)(1,2,3);     // adds a dummy parameter at the back and calls foo(1,2)
- *   sigc::hide<-1>(&foo)(1,2,3); // same as sigc::hide(&foo)(1,2,3) (calls foo(1,2))
- *   sigc::hide<0>(&foo)(1,2,3);  // adds a dummy parameter at the beginning and calls foo(2,3)
- *   sigc::hide<1>(&foo)(1,2,3);  // adds a dummy parameter in the middle and calls foo(1,3)
- *   sigc::hide<2>(&foo)(1,2,3);  // adds a dummy parameter at the back and calls foo(1,2)
- *   @endcode
+ * @code
+ * void foo(int, int);
+ * // single argument hiding ...
+ * sigc::hide(&foo)(1,2,3);     // adds a dummy parameter at the back and calls foo(1,2)
+ * sigc::hide<-1>(&foo)(1,2,3); // same as sigc::hide(&foo)(1,2,3) (calls foo(1,2))
+ * sigc::hide<0>(&foo)(1,2,3);  // adds a dummy parameter at the beginning and calls foo(2,3)
+ * sigc::hide<1>(&foo)(1,2,3);  // adds a dummy parameter in the middle and calls foo(1,3)
+ * sigc::hide<2>(&foo)(1,2,3);  // adds a dummy parameter at the back and calls foo(1,2)
+ * @endcode
  *
- * The functor sigc::hide() returns can be passed into
- * sigc::signal::connect() directly.
+ * The functor sigc::hide() returns can be directly passed into
+ * sigc::signal::connect().
  *
  * @par Example:
- *   @code
- *   sigc::signal<void,int> some_signal;
- *   void foo();
- *   some_signal.connect(sigc::hide(&foo));
- *   @endcode
+ * @code
+ * sigc::signal<void,int> some_signal;
+ * void foo();
+ * some_signal.connect(sigc::hide(&foo));
+ * @endcode
  *
  * sigc::hide() can be nested in order to discard multiple arguments.
  * @par Example:
- *   @code
- *   // multiple argument hiding ...
- *   sigc::hide(sigc::hide(&foo))(1,2,3,4); // adds two dummy parameters at the back and calls foo(1,2)
- *   @endcode
+ * @code
+ * // multiple argument hiding ...
+ * sigc::hide(sigc::hide(&foo))(1,2,3,4); // adds two dummy parameters at the back and calls foo(1,2)
+ * @endcode
 
  * sigc::hide_return() alters an arbitrary functor by
  * dropping its return value, thus converting it to a void functor.
  *
  * For a more powerful version of this functionality see the lambda
  * library adaptor sigc::group() which can bind, hide and reorder
- * arguments arbitrarily.  Although sigc::group() is more flexible,
- * sigc::hide() provides a means of hiding parameters when then total
+ * arguments arbitrarily. Although sigc::group() is more flexible,
+ * sigc::hide() provides a means of hiding parameters when the total
  * number of parameters called is variable.
  *
  * @ingroup adaptors
@@ -102,7 +102,7 @@ struct hide_functor <-1, T_functor> : public adapts<T_functor>
     { return this->functor_(); }
   #endif
 
-  /** Invokes the wrapped functor ignoring the last argument.
+  /** Invokes the wrapped functor, ignoring the last argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be ignored.
    * @return The return value of the functor invocation.
@@ -121,7 +121,7 @@ struct hide_functor <-1, T_functor> : public adapts<T_functor>
         (_A_a1); }
   #endif
 
-  /** Invokes the wrapped functor ignoring the last argument.
+  /** Invokes the wrapped functor, ignoring the last argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be ignored.
@@ -141,7 +141,7 @@ struct hide_functor <-1, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2); }
   #endif
 
-  /** Invokes the wrapped functor ignoring the last argument.
+  /** Invokes the wrapped functor, ignoring the last argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -162,7 +162,7 @@ struct hide_functor <-1, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2, _A_a3); }
   #endif
 
-  /** Invokes the wrapped functor ignoring the last argument.
+  /** Invokes the wrapped functor, ignoring the last argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -184,7 +184,7 @@ struct hide_functor <-1, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2, _A_a3, _A_a4); }
   #endif
 
-  /** Invokes the wrapped functor ignoring the last argument.
+  /** Invokes the wrapped functor, ignoring the last argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -207,7 +207,7 @@ struct hide_functor <-1, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2, _A_a3, _A_a4, _A_a5); }
   #endif
 
-  /** Invokes the wrapped functor ignoring the last argument.
+  /** Invokes the wrapped functor, ignoring the last argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -271,7 +271,7 @@ struct hide_functor <0, T_functor> : public adapts<T_functor>
     { return this->functor_(); }
   #endif
 
-  /** Invokes the wrapped functor ignoring the 1th argument.
+  /** Invokes the wrapped functor, ignoring the 1th argument.
    * @param _A_arg1 Argument to be ignored.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @return The return value of the functor invocation.
@@ -290,7 +290,7 @@ struct hide_functor <0, T_functor> : public adapts<T_functor>
         (_A_a2); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 1th argument.
+  /** Invokes the wrapped functor, ignoring the 1th argument.
    * @param _A_arg1 Argument to be ignored.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -310,7 +310,7 @@ struct hide_functor <0, T_functor> : public adapts<T_functor>
         (_A_a2, _A_a3); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 1th argument.
+  /** Invokes the wrapped functor, ignoring the 1th argument.
    * @param _A_arg1 Argument to be ignored.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -331,7 +331,7 @@ struct hide_functor <0, T_functor> : public adapts<T_functor>
         (_A_a2, _A_a3, _A_a4); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 1th argument.
+  /** Invokes the wrapped functor, ignoring the 1th argument.
    * @param _A_arg1 Argument to be ignored.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -353,7 +353,7 @@ struct hide_functor <0, T_functor> : public adapts<T_functor>
         (_A_a2, _A_a3, _A_a4, _A_a5); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 1th argument.
+  /** Invokes the wrapped functor, ignoring the 1th argument.
    * @param _A_arg1 Argument to be ignored.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -376,7 +376,7 @@ struct hide_functor <0, T_functor> : public adapts<T_functor>
         (_A_a2, _A_a3, _A_a4, _A_a5, _A_a6); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 1th argument.
+  /** Invokes the wrapped functor, ignoring the 1th argument.
    * @param _A_arg1 Argument to be ignored.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -424,7 +424,7 @@ struct hide_functor <1, T_functor> : public adapts<T_functor>
     { typedef typename adaptor_type::template deduce_result_type<typename type_trait<T_arg1>::pass, typename type_trait<T_arg3>::pass, typename type_trait<T_arg4>::pass, typename type_trait<T_arg5>::pass, typename type_trait<T_arg6>::pass, typename type_trait<T_arg7>::pass>::type type; };
   typedef typename adaptor_type::result_type  result_type;
 
-  /** Invokes the wrapped functor ignoring the 2th argument.
+  /** Invokes the wrapped functor, ignoring the 2th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be ignored.
    * @return The return value of the functor invocation.
@@ -443,7 +443,7 @@ struct hide_functor <1, T_functor> : public adapts<T_functor>
         (_A_a1); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 2th argument.
+  /** Invokes the wrapped functor, ignoring the 2th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be ignored.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -463,7 +463,7 @@ struct hide_functor <1, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a3); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 2th argument.
+  /** Invokes the wrapped functor, ignoring the 2th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be ignored.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -484,7 +484,7 @@ struct hide_functor <1, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a3, _A_a4); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 2th argument.
+  /** Invokes the wrapped functor, ignoring the 2th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be ignored.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -506,7 +506,7 @@ struct hide_functor <1, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a3, _A_a4, _A_a5); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 2th argument.
+  /** Invokes the wrapped functor, ignoring the 2th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be ignored.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -529,7 +529,7 @@ struct hide_functor <1, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a3, _A_a4, _A_a5, _A_a6); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 2th argument.
+  /** Invokes the wrapped functor, ignoring the 2th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be ignored.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -577,7 +577,7 @@ struct hide_functor <2, T_functor> : public adapts<T_functor>
     { typedef typename adaptor_type::template deduce_result_type<typename type_trait<T_arg1>::pass, typename type_trait<T_arg2>::pass, typename type_trait<T_arg4>::pass, typename type_trait<T_arg5>::pass, typename type_trait<T_arg6>::pass, typename type_trait<T_arg7>::pass>::type type; };
   typedef typename adaptor_type::result_type  result_type;
 
-  /** Invokes the wrapped functor ignoring the 3th argument.
+  /** Invokes the wrapped functor, ignoring the 3th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be ignored.
@@ -597,7 +597,7 @@ struct hide_functor <2, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 3th argument.
+  /** Invokes the wrapped functor, ignoring the 3th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be ignored.
@@ -618,7 +618,7 @@ struct hide_functor <2, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2, _A_a4); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 3th argument.
+  /** Invokes the wrapped functor, ignoring the 3th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be ignored.
@@ -640,7 +640,7 @@ struct hide_functor <2, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2, _A_a4, _A_a5); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 3th argument.
+  /** Invokes the wrapped functor, ignoring the 3th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be ignored.
@@ -663,7 +663,7 @@ struct hide_functor <2, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2, _A_a4, _A_a5, _A_a6); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 3th argument.
+  /** Invokes the wrapped functor, ignoring the 3th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be ignored.
@@ -711,7 +711,7 @@ struct hide_functor <3, T_functor> : public adapts<T_functor>
     { typedef typename adaptor_type::template deduce_result_type<typename type_trait<T_arg1>::pass, typename type_trait<T_arg2>::pass, typename type_trait<T_arg3>::pass, typename type_trait<T_arg5>::pass, typename type_trait<T_arg6>::pass, typename type_trait<T_arg7>::pass>::type type; };
   typedef typename adaptor_type::result_type  result_type;
 
-  /** Invokes the wrapped functor ignoring the 4th argument.
+  /** Invokes the wrapped functor, ignoring the 4th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -732,7 +732,7 @@ struct hide_functor <3, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2, _A_a3); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 4th argument.
+  /** Invokes the wrapped functor, ignoring the 4th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -754,7 +754,7 @@ struct hide_functor <3, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2, _A_a3, _A_a5); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 4th argument.
+  /** Invokes the wrapped functor, ignoring the 4th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -777,7 +777,7 @@ struct hide_functor <3, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2, _A_a3, _A_a5, _A_a6); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 4th argument.
+  /** Invokes the wrapped functor, ignoring the 4th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -825,7 +825,7 @@ struct hide_functor <4, T_functor> : public adapts<T_functor>
     { typedef typename adaptor_type::template deduce_result_type<typename type_trait<T_arg1>::pass, typename type_trait<T_arg2>::pass, typename type_trait<T_arg3>::pass, typename type_trait<T_arg4>::pass, typename type_trait<T_arg6>::pass, typename type_trait<T_arg7>::pass>::type type; };
   typedef typename adaptor_type::result_type  result_type;
 
-  /** Invokes the wrapped functor ignoring the 5th argument.
+  /** Invokes the wrapped functor, ignoring the 5th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -847,7 +847,7 @@ struct hide_functor <4, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2, _A_a3, _A_a4); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 5th argument.
+  /** Invokes the wrapped functor, ignoring the 5th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -870,7 +870,7 @@ struct hide_functor <4, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2, _A_a3, _A_a4, _A_a6); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 5th argument.
+  /** Invokes the wrapped functor, ignoring the 5th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -918,7 +918,7 @@ struct hide_functor <5, T_functor> : public adapts<T_functor>
     { typedef typename adaptor_type::template deduce_result_type<typename type_trait<T_arg1>::pass, typename type_trait<T_arg2>::pass, typename type_trait<T_arg3>::pass, typename type_trait<T_arg4>::pass, typename type_trait<T_arg5>::pass, typename type_trait<T_arg7>::pass>::type type; };
   typedef typename adaptor_type::result_type  result_type;
 
-  /** Invokes the wrapped functor ignoring the 6th argument.
+  /** Invokes the wrapped functor, ignoring the 6th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -941,7 +941,7 @@ struct hide_functor <5, T_functor> : public adapts<T_functor>
         (_A_a1, _A_a2, _A_a3, _A_a4, _A_a5); }
   #endif
     
-  /** Invokes the wrapped functor ignoring the 6th argument.
+  /** Invokes the wrapped functor, ignoring the 6th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -989,7 +989,7 @@ struct hide_functor <6, T_functor> : public adapts<T_functor>
     { typedef typename adaptor_type::template deduce_result_type<typename type_trait<T_arg1>::pass, typename type_trait<T_arg2>::pass, typename type_trait<T_arg3>::pass, typename type_trait<T_arg4>::pass, typename type_trait<T_arg5>::pass, typename type_trait<T_arg6>::pass>::type type; };
   typedef typename adaptor_type::result_type  result_type;
 
-  /** Invokes the wrapped functor ignoring the 7th argument.
+  /** Invokes the wrapped functor, ignoring the 7th argument.
    * @param _A_arg1 Argument to be passed on to the functor.
    * @param _A_arg2 Argument to be passed on to the functor.
    * @param _A_arg3 Argument to be passed on to the functor.
@@ -1043,7 +1043,7 @@ void visit_each(const T_action& _A_action,
  * position of the dummy parameter in the returned functor (@p -1 stands for the last parameter).
  *
  * @param _A_func Functor that should be wrapped.
- * @return Adaptor that executes @e _A_func ignoring the value of the dummy parameter.
+ * @return Adaptor that executes @e _A_func, ignoring the value of the dummy parameter.
  *
  * @ingroup hide
  */
@@ -1056,7 +1056,7 @@ hide(const T_functor& _A_func)
  * This overload adds a dummy parameter at the back of the functor's parameter list.
  *
  * @param _A_func Functor that should be wrapped.
- * @return Adaptor that executes @e _A_func ignoring the value of the last parameter.
+ * @return Adaptor that executes @e _A_func, ignoring the value of the last parameter.
  *
  * @ingroup hide
  */

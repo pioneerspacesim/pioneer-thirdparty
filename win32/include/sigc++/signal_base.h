@@ -21,6 +21,7 @@
 #ifndef _SIGC_SIGNAL_BASE_H_
 #define _SIGC_SIGNAL_BASE_H_
 
+#include <cstddef>
 #include <list>
 #include <sigc++config.h>
 #include <sigc++/type_traits.h>
@@ -45,7 +46,7 @@ namespace internal
  */
 struct SIGC_API signal_impl
 {
-  typedef size_t size_type;
+  typedef std::size_t size_type;
   typedef std::list<slot_base> slot_list;
   typedef slot_list::iterator       iterator_type;
   typedef slot_list::const_iterator const_iterator_type;
@@ -95,6 +96,25 @@ struct SIGC_API signal_impl
    * @return The number of slots in the list.
    */
   size_type size() const;
+
+  /** Returns whether all slots in the list are blocked.
+   * @return @p true if all slots are blocked or the list is empty.
+   *
+   * @newin{2,4}
+   */
+  bool blocked() const;
+
+  /** Sets the blocking state of all slots in the list.
+   * If @e should_block is @p true then the blocking state is set.
+   * Subsequent emissions of the signal don't invoke the functors
+   * contained in the slots until block() with @e should_block = @p false is called.
+   * sigc::slot_base::block() and sigc::slot_base::unblock() can change the
+   * blocking state of individual slots.
+   * @param should_block Indicates whether the blocking state should be set or unset.
+   *
+   * @newin{2,4}
+   */
+  void block(bool should_block = true);
 
   /** Adds a slot at the bottom of the list of slots.
    * @param slot_ The slot to add to the list of slots.
@@ -238,7 +258,7 @@ private:
  */
 struct SIGC_API signal_base : public trackable
 {
-  typedef size_t size_type;
+  typedef std::size_t size_type;
 
   signal_base();
 
@@ -261,6 +281,32 @@ struct SIGC_API signal_base : public trackable
    * @return The number of slots in the list.
    */
   size_type size() const;
+
+  /** Returns whether all slots in the list are blocked.
+   * @return @p true if all slots are blocked or the list is empty.
+   *
+   * @newin{2,4}
+   */
+  bool blocked() const;
+
+  /** Sets the blocking state of all slots in the list.
+   * If @e should_block is @p true then the blocking state is set.
+   * Subsequent emissions of the signal don't invoke the functors
+   * contained in the slots until unblock() or block() with
+   * @e should_block = @p false is called.
+   * sigc::slot_base::block() and sigc::slot_base::unblock() can change the
+   * blocking state of individual slots.
+   * @param should_block Indicates whether the blocking state should be set or unset.
+   *
+   * @newin{2,4}
+   */
+  void block(bool should_block = true);
+
+  /** Unsets the blocking state of all slots in the list..
+   *
+   * @newin{2,4}
+   */
+  void unblock();
 
 protected:
   typedef internal::signal_impl::iterator_type iterator_type;

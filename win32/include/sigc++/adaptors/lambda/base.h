@@ -8,26 +8,36 @@
 namespace sigc {
 
 /** @defgroup lambdas Lambdas
- * libsigc++ ships with basic lambda functionality and the sigc::group adaptor that uses lambdas to transform a functor's parameter list.
+ * libsigc++ ships with basic lambda functionality and the sigc::group adaptor,
+ * which uses lambdas to transform a functor's parameter list.
  *
  * The lambda selectors sigc::_1, sigc::_2, ..., sigc::_9 are used to select the
  * first, second, ..., nineth argument from a list.
  *
  * @par Examples:
- *   @code
- *   std::cout << sigc::_1(10,20,30); // returns 10
- *   std::cout << sigc::_2(10,20,30); // returns 20
- *   ...
- *   @endcode
+ * @code
+ * std::cout << sigc::_1(10,20,30); // returns 10
+ * std::cout << sigc::_2(10,20,30); // returns 20
+ * @endcode
  *
- * Operators are defined so that lambda selectors can be used e.g. as placeholders in
- * arithmetic expressions.
+ * Operators are defined so that, for example, lambda selectors can be used as
+ * placeholders in arithmetic expressions.
  *
  * @par Examples:
- *   @code
- *   std::cout << (sigc::_1 + 5)(3); // returns (3 + 5)
- *   std::cout << (sigc::_1 * sigc::_2)(7,10); // returns (7 * 10)
- *   @endcode
+ * @code
+ * std::cout << (sigc::_1 + 5)(3); // returns (3 + 5)
+ * std::cout << (sigc::_1 * sigc::_2)(7,10); // returns (7 * 10)
+ * @endcode
+ *
+ * If your compiler supports C++11 lambda expressions, they are often a good
+ * alternative to libsigc++'s lambda expressions. The following examples are
+ * equivalent to the previous ones.
+ * @code
+ * [] (int x, int, int) -> int { return x; }(10,20,30); // returns 10
+ * [] (int, int y, int) -> int { return y; }(10,20,30); // returns 20
+ * [] (int x) -> int { return x + 5; }(3); // returns (3 + 5)
+ * [] (int x, int y) -> int { return x * y; }(7,10); // returns (7 * 10)
+ * @endcode
  */
 
 /** A hint to the compiler.
@@ -306,6 +316,22 @@ template <class T_type>
 struct unwrap_lambda_type;
 
 
+/** Gets the object stored inside a lambda object.
+ * Returns the object passed as argument, if it is not of type lambda.
+ */
+template <class T_type>
+T_type& unwrap_lambda_value(T_type& a)
+{ return a; }
+
+template <class T_type>
+const T_type& unwrap_lambda_value(const T_type& a)
+{ return a; }
+
+template <class T_type>
+const T_type& unwrap_lambda_value(const lambda<T_type>& a)
+{ return a.value_; }
+
+
 /** Lambda type.
  * Objects of this type store a value that may be of type lambda itself.
  * In this case, operator()() executes the lambda (a lambda is always a functor at the same time).
@@ -355,21 +381,31 @@ void visit_each(const T_action& _A_action,
  * sigc::var creates a 0-ary functor, returning the value of a referenced variable. 
  *
  * @par Example:
- *   @code
- *   int main(int argc, char* argv)
- *   {
- *     int data;
- *     sigc::signal<int> readValue;
+ * @code
+ * int main(int argc, char* argv)
+ * {
+ *   int data;
+ *   sigc::signal<int> readValue;
  *
- *     readValue.connect(sigc::var(data));
+ *   readValue.connect(sigc::var(data));
  *
- *     data = 3;
- *     std::cout << readValue() << std::endl; //Prints 3.
+ *   data = 3;
+ *   std::cout << readValue() << std::endl; //Prints 3.
  *
- *    data = 5;
- *    std::cout << readValue() << std::endl; //Prints 5.
- *   }
- *   @endcode
+ *   data = 5;
+ *   std::cout << readValue() << std::endl; //Prints 5.
+ * }
+ * @endcode
+ *
+ * If your compiler supports C++11 lambda expressions, and you use the macro
+ * #SIGC_FUNCTORS_DEDUCE_RESULT_TYPE_WITH_DECLTYPE, you can replace
+ * @code
+ * readValue.connect(sigc::var(data));
+ * @endcode
+ * in the example by
+ * @code
+ * readValue.connect([&data] () -> int { return data; });
+ * @endcode
  */
 template <class T_type>
 lambda<T_type&> var(T_type& v)
@@ -383,7 +419,7 @@ lambda<const T_type&> var(const T_type& v)
 
 
 /** Deduces the type of the object stored in an object of the passed lambda type.
- * If the type passed as template argument is no lambda type,
+ * If the type passed as template argument is not of lambda type,
  * type is defined to unwrap_reference<T_type>::type.
  */
 template <class T_type>
@@ -393,22 +429,6 @@ struct unwrap_lambda_type
 template <class T_type>
 struct unwrap_lambda_type<lambda<T_type> >
 { typedef T_type type; };
-
-
-/** Gets the object stored inside a lambda object.
- * Returns the object passed as argument if it is not of type lambda.
- */
-template <class T_type>
-T_type& unwrap_lambda_value(T_type& a)
-{ return a; }
-
-template <class T_type>
-const T_type& unwrap_lambda_value(const T_type& a)
-{ return a; }
-
-template <class T_type>
-const T_type& unwrap_lambda_value(const lambda<T_type>& a)
-{ return a.value_; }
 
 } /* namespace sigc */
 

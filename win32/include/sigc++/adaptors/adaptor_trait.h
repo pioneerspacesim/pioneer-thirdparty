@@ -43,7 +43,7 @@ template <class T_functor> struct adapts;
  * All adaptor tyes in libsigc++ are unnumbered and have
  * a <tt>template operator()</tt> member of every argument count
  * they support. These functions in turn invoke a stored adaptor's
- * <tt>template operator()</tt> processing the arguments and return
+ * <tt>template operator()</tt>, processing the arguments and return
  * value in a characteristic manner. Explicit function template
  * instantiation is used to pass type hints thus saving copy costs.
  *
@@ -315,32 +315,48 @@ struct adaptor_trait<T_functor, false>
  * inherits from sigc::adaptor_base.
  *
  * @par Example of a simple adaptor:
- *   @code
- *   template <T_functor>
- *   struct my_adpator : public sigc::adapts<T_functor>
- *   {
- *     template <class T_arg1=void, class T_arg2=void>
- *     struct deduce_result_type
- *     { typedef typename sigc::deduce_result_type<T_functor, T_arg1, T_arg2>::type type; };
- *     typedef typename sigc::functor_trait<T_functor>::result_type result_type;
+ * @code
+ * template <class T_functor>
+ * struct my_adaptor : public sigc::adapts<T_functor>
+ * {
+ *   template <class T_arg1=void, class T_arg2=void>
+ *   struct deduce_result_type
+ *   { typedef typename sigc::deduce_result_type<T_functor, T_arg1, T_arg2>::type type; };
+ *   typedef typename sigc::functor_trait<T_functor>::result_type result_type;
  *
- *     result_type
- *     operator()() const;
+ *   result_type
+ *   operator()() const;
  *
- *     template <class T_arg1>
- *     typename deduce_result_type<T_arg1>::type
- *     operator()(T_arg1 _A_arg1) const;
+ *   template <class T_arg1>
+ *   typename deduce_result_type<T_arg1>::type
+ *   operator()(T_arg1 _A_arg1) const;
  *
- *     template <class T_arg1, class T_arg2>
- *     typename deduce_result_type<T_arg1, T_arg2>::type
- *     operator()(T_arg1 _A_arg1, class T_arg2) const;
+ *   template <class T_arg1, class T_arg2>
+ *   typename deduce_result_type<T_arg1, T_arg2>::type
+ *   operator()(T_arg1 _A_arg1, class T_arg2) const;
  *
- *     explicit adaptor_functor(const T_functor& _A_functor) // Constructs a my_functor object that wraps the passed functor.
- *       : sigc::adapts<T_functor>(_A_functor) {}
+ *   // Constructs a my_adaptor object that wraps the passed functor.
+ *   // Initializes adapts<T_functor>::functor_, which is invoked from operator()().
+ *   explicit my_adaptor(const T_functor& _A_functor)
+ *     : sigc::adapts<T_functor>(_A_functor) {}
+ * };
  *
- *     mutable T_functor functor_; // Functor that is invoked from operator()().
- *   };
- *   @endcode
+ * template <class T_action, class T_functor>
+ * void visit_each(const T_action& _A_action,
+ *                 const my_adaptor<T_functor>& _A_target)
+ * {
+ *   visit_each(_A_action, _A_target.functor_);
+ * }
+ * @endcode
+ *
+ * If you implement your own adaptor, you must also provide your specialization
+ * of visit_each<>() that will forward the call to the functor(s) your
+ * adapter is wrapping. Otherwise, pointers stored within the functor won't be
+ * invalidated when a sigc::trackable object is destroyed and you can end up
+ * executing callbacks on destroyed objects.
+ *
+ * Your adaptor and your specialization of visit_each<>() must be in the same
+ * namespace.
  *
  * @ingroup adaptors
  */

@@ -444,7 +444,7 @@ public:
   inline slot0() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot0(const T_functor& _A_func)
@@ -519,7 +519,7 @@ public:
   inline slot1() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot1(const T_functor& _A_func)
@@ -597,7 +597,7 @@ public:
   inline slot2() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot2(const T_functor& _A_func)
@@ -678,7 +678,7 @@ public:
   inline slot3() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot3(const T_functor& _A_func)
@@ -762,7 +762,7 @@ public:
   inline slot4() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot4(const T_functor& _A_func)
@@ -849,7 +849,7 @@ public:
   inline slot5() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot5(const T_functor& _A_func)
@@ -939,7 +939,7 @@ public:
   inline slot6() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot6(const T_functor& _A_func)
@@ -1032,7 +1032,7 @@ public:
   inline slot7() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot7(const T_functor& _A_func)
@@ -1069,19 +1069,19 @@ public:
  * - @e T_arg6 Argument type used in the definition of operator()(). The default @p nil means no argument.
  * - @e T_arg7 Argument type used in the definition of operator()(). The default @p nil means no argument.
  *
- * To use simply assign the slot to the desired functor. If the functor
+ * To use, simply assign the slot to the desired functor. If the functor
  * is not compatible with the parameter list defined with the template
- * arguments compiler errors are triggered. When called the slot
+ * arguments, compiler errors are triggered. When called, the slot
  * will invoke the functor with minimal copies.
- * block() and unblock() can be used to block the functor's invocation
- * from operator()() temporarily.
+ * block() and unblock() can be used to temporarily block the functor's
+ * invocation from operator()().
  *
  * @par Example:
- *   @code
- *   void foo(int) {}
- *   sigc::slot<void, long> s = sigc::ptr_fun(&foo);
- *   s(19);
- *   @endcode
+ * @code
+ * void foo(int) {}
+ * sigc::slot<void, long> s = sigc::ptr_fun(&foo);
+ * s(19);
+ * @endcode
  *
  * @ingroup slot
  */
@@ -1095,7 +1095,7 @@ public:
   inline slot() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot(const T_functor& _A_func)
@@ -1123,7 +1123,7 @@ public:
   inline slot() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot(const T_functor& _A_func)
@@ -1150,7 +1150,7 @@ public:
   inline slot() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot(const T_functor& _A_func)
@@ -1177,7 +1177,7 @@ public:
   inline slot() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot(const T_functor& _A_func)
@@ -1204,7 +1204,7 @@ public:
   inline slot() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot(const T_functor& _A_func)
@@ -1231,7 +1231,7 @@ public:
   inline slot() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot(const T_functor& _A_func)
@@ -1258,7 +1258,7 @@ public:
   inline slot() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot(const T_functor& _A_func)
@@ -1285,7 +1285,7 @@ public:
   inline slot() {}
 
   /** Constructs a slot from an arbitrary functor.
-   * @param _A_func The desirer functor the new slot should be assigned to.
+   * @param _A_func The desired functor the new slot should be assigned to.
    */
   template <class T_functor>
   slot(const T_functor& _A_func)
