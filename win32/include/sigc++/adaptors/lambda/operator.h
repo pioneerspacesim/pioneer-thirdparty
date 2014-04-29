@@ -100,6 +100,7 @@ struct dereference {};
 struct reinterpret_ {};
 struct static_ {};
 struct dynamic_ {};
+struct comma {};
 
 template <class T_action, class T_test1, class T_test2>
 struct lambda_action_deduce_result_type
@@ -406,6 +407,15 @@ struct lambda_action<bitwise_assign<xor_> >
   static typename lambda_action_deduce_result_type<bitwise_assign<xor_>, T_arg1, T_arg2>::type
   do_action(T_arg1 _A_1, T_arg2 _A_2)
     { return _A_1 ^= _A_2; }
+};
+
+template <>
+struct lambda_action<comma >
+{
+  template <class T_arg1, class T_arg2>
+  static typename lambda_action_deduce_result_type<comma, T_arg1, T_arg2>::type
+  do_action(T_arg1 _A_1, T_arg2 _A_2)
+    { return (void)_A_1 , _A_2; }
 };
 
 template <>
@@ -1624,6 +1634,12 @@ operator ^= (const T_arg1& a1, const lambda<T_arg2>& a2)
 { typedef lambda_operator<bitwise_assign<xor_>, typename unwrap_reference<T_arg1>::type, T_arg2> operator_type;
   return lambda<operator_type>(operator_type(a1,a2.value_)); }
 
+// Operators for lambda action comma. For comma we require that both arguments needs to be of type lamdba
+template <class T_arg1, class T_arg2>
+lambda<lambda_operator<comma, T_arg1, T_arg2> >
+operator , (const lambda<T_arg1>& a1, const lambda<T_arg2>& a2)
+{ typedef lambda_operator<comma, T_arg1, T_arg2> operator_type;
+  return lambda<operator_type>(operator_type(a1.value_,a2.value_)); }
 // Operator for lambda action unary_arithmetic<pre_increment>.
 template <class T_arg>
 lambda<lambda_operator_unary<unary_arithmetic<pre_increment>, T_arg> >
