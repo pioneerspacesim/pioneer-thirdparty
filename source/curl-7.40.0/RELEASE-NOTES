@@ -1,0 +1,75 @@
+Curl and libcurl 7.41.0
+
+ Public curl releases:         144
+ Command line options:         163
+ curl_easy_setopt() options:   209
+ Public functions in libcurl:  58
+ Contributors:                 1233
+
+This release includes the following changes:
+
+ o NetWare build: added TLS-SRP enabled build
+ o winbuild: Added option to build with c-ares
+ o Added --cert-status [9]
+ o Added CURLOPT_SSL_VERIFYSTATUS [10]
+
+This release includes the following bugfixes:
+
+ o sasl_gssapi: Fixed build on NetBSD with built-in GSS-API [1]
+ o FTP: fix IPv6 host using link-local address [2]
+ o FTP: if EPSV fails on IPV6 connections, bail out
+ o gssapi: Remove need for duplicated GSS_C_NT_HOSTBASED_SERVICE definitions
+ o NSS: fix compiler error when built http2-enabled
+ o mingw build: allow to pass custom CFLAGS [3]
+ o add -m64 CFLAGS when targeting mingw64, add -m32/-m64 to LDFLAGS [4]
+ o curl_schannel.c: mark session as removed from cache if not freed [5]
+ o Curl_pretransfer: reset expected transfer sizes [6]
+ o curl.h: remove extra space [7]
+ o curl_endian: Fixed build when 64-bit integers are not supported [8]
+ o checksrc.bat: Better detection of Perl installation
+ o build-openssl.bat: Added check for Perl installation
+ o http_negotiate: Return CURLcode in Curl_input_negotiate() instead of int
+ o http_negotiate: Added empty decoded challenge message info text
+ o vtls: Removed unimplemented overrides of curlssl_close_all()
+ o sasl_gssapi: Fixed memory leak with local SPN variable
+ o http_negotiate: Use dynamic buffer for SPN generation
+ o ldap: Renamed the CURL_LDAP_WIN definition to USE_WIN32_LDAP
+ o openssl: do public key pinning check independently [11]
+ o timeval: typecast for better type (on Amiga)
+ o ipv6: enclose AF_INET6 uses with proper #ifdefs for ipv6
+ o SASL: common URL option and auth capabilities decoders for all protocols
+ o BoringSSL: fix build
+ o BoringSSL: detected by configure, switches off NTLM
+ o openvms: Handle openssl/0.8.9zb version parsing
+ o configure: detect libresssl
+ o configure: remove detection of the old yassl emulation API
+ o 
+
+This release includes the following known bugs:
+
+ o see docs/KNOWN_BUGS (http://curl.haxx.se/docs/knownbugs.html)
+
+This release would not have looked like this without help, code, reports and
+advice from friends like these:
+
+  Alessandro Ghedini, Chris Young, Daniel Stenberg, Guenter Knauf,
+  Jean-Francois Durand, Joe Mason, John E. Malmberg, Kyle J. McKay, Leith Bade,
+  Marc Hoersken, Mohammad AlSaleh, Patrick Monnerat, Sam Schanken, Steve Holme,
+  Thomas Klausner, Viktor Szakats, Vojtěch Král, Yun SangHo
+
+        Thanks! (and sorry if I forgot to mention someone)
+
+References to bug reports and discussions on issues:
+
+ [1] = http://curl.haxx.se/bug/view.cgi?id=1469
+ [2] = http://curl.haxx.se/bug/view.cgi?id=1468
+ [3] = https://github.com/bagder/curl/pull/136
+ [4] = https://github.com/bagder/curl/pull/134
+ [5] = http://curl.haxx.se/mail/lib-2015-01/0036.html
+ [6] = http://curl.haxx.se/mail/lib-2015-01/0065.html
+ [7] = https://github.com/bagder/curl/pull/137
+ [8] = http://curl.haxx.se/mail/lib-2015-01/0094.html
+ [9] = http://curl.haxx.se/docs/manpage.html#--cert-status
+ [10] = http://curl.haxx.se/libcurl/c/CURLOPT_SSL_VERIFYSTATUS.html
+ [11] = http://curl.haxx.se/bug/view.cgi?id=1471
+ 
