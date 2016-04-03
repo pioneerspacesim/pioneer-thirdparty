@@ -2,10 +2,13 @@
 #ifndef INCLUDED_AI_BOOST_SHARED_PTR
 #define INCLUDED_AI_BOOST_SHARED_PTR
 
-#ifndef BOOST_SCOPED_PTR_HPP_INCLUDED
+#ifndef BOOST_SHARED_PTR_HPP_INCLUDED
 
 // ------------------------------
 // Internal stub
+
+#include <stddef.h> //NULL
+#include <algorithm> //std::swap
 namespace boost {
 	namespace detail {
 		class controller {
@@ -254,4 +257,4 @@ inline shared_ptr<T> const_pointer_cast( shared_ptr<U> ptr)
 #else
 #	error "shared_ptr.h was already included"
 #endif
-#endif // INCLUDED_AI_BOOST_SCOPED_PTR
+#endif // INCLUDED_AI_BOOST_SHARED_PTR
