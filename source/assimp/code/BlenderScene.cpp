@@ -2,7 +2,7 @@
 Open Asset Import Library (ASSIMP)
 ----------------------------------------------------------------------
 
-Copyright (c) 2006-2010, ASSIMP Development Team
+Copyright (c) 2006-2016, ASSIMP Development Team
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -64,7 +64,7 @@ template <> void Structure :: Convert<Object> (
     ReadFieldArray2<ErrorPolicy_Warn>(dest.parentinv,"parentinv",db);
     ReadFieldArray<ErrorPolicy_Warn>(dest.parsubstr,"parsubstr",db);
     {
-        boost::shared_ptr<Object> parent;
+        std::shared_ptr<Object> parent;
         ReadFieldPtr<ErrorPolicy_Warn>(parent,"*parent",db);
         dest.parent = parent.get();
     }
@@ -337,7 +337,7 @@ template <> void Structure :: Convert<MTexPoly> (
 {
 
     {
-        boost::shared_ptr<Image> tpage;
+        std::shared_ptr<Image> tpage;
         ReadFieldPtr<ErrorPolicy_Igno>(tpage,"*tpage",db);
         dest.tpage = tpage.get();
     }
