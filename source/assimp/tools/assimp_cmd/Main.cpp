@@ -3,7 +3,7 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2012, assimp team
+Copyright (c) 2006-2016, assimp team
 
 All rights reserved.
 
@@ -51,7 +51,7 @@ const char* AICMD_MSG_ABOUT =
 " -- Commandline toolchain --\n"
 "------------------------------------------------------ \n\n"
 
-"Version %i.%i-%s%s%s%s%s (SVNREV %i)\n\n";
+"Version %i.%i %s%s%s%s%s(GIT commit %x)\n\n";
 
 const char* AICMD_MSG_HELP = 
 "assimp <verb> <parameters>\n\n"
@@ -291,7 +291,7 @@ const aiScene* ImportModel(
 		PrintHorBar();
 	}
 	if (!scene) {
-		printf("ERROR: Failed to load file\n");	
+		printf("ERROR: Failed to load file: %s\n", globalImporter->GetErrorString());
 		return NULL;
 	}
 

@@ -1,125 +1,135 @@
-Open Asset Import Library (_assimp_) 
-========
+Open Asset Import Library (assimp)
+==================================
+Open Asset Import Library is a library to load various 3d file formats into a shared, in-memory format. It supports more than __40 file formats__ for import and a growing selection of file formats for export.
 
+APIs are provided for C and C++. There are various bindings to other languages (C#, Java, Python, Delphi, D). Assimp also runs on Android and iOS.
 
-    Table of contents
+Additionally, assimp features various __mesh post processing tools__: normals and tangent space generation, triangulation, vertex cache locality optimization, removal of degenerate primitives and duplicate vertices, sorting by primitive type, merging of redundant materials and many more.
 
-	1.		Overview
-	 1.1		Supported file formats
-	 1.2		File structure
-	2.		Build the library
-	3. 		Where to get help
-	4.		License
+This is the development trunk containing the latest features and bugfixes. For productive use though, we recommend one of the stable releases available from [assimp.sf.net](http://assimp.sf.net) or from *nix package repositories.
+The current build status is:
 
+Linux [![Linux Build Status](https://travis-ci.org/assimp/assimp.png)](https://travis-ci.org/assimp/assimp)
+Windows [![Windows Build Status](https://ci.appveyor.com/api/projects/status/tmo433wax6u6cjp4?svg=true)](https://ci.appveyor.com/project/kimkulling/assimp)
+Coverity<a href="https://scan.coverity.com/projects/5607">
+  <img alt="Coverity Scan Build Status"
+       src="https://scan.coverity.com/projects/5607/badge.svg"/>
+</a>
 
+__[open3mod](https://github.com/acgessler/open3mod) is a powerful 3D model viewer based on Assimp's import and export abilities.__
 
+#### Supported file formats ####
 
-### 1. Overview ###
-
-
-Open Asset Import Library is a Open Source library designed to load various 3d file formats and convert them into a shared, in-memory format. It supports more than 30 file formats. It also supports exporting files to a few selected file formats.
-
-Its short name is _assimp_, which is an unintended joke (the abbreviation is derived from _Asset Importer_). 
-
-__Note__: this `README` refers to the file structure used by release packages, which differs in some points from the development trunk.
-
-
-#### 1.1 Supported file formats ####
-
-The library provides importers for a lot of file formats, including:
+A full list [is here](http://assimp.sourceforge.net/main_features_formats.html).
+__Importers__:
 
 - 3DS
-- BLEND 
-- DAE (Collada)
-- IFC-STEP 
+- BLEND (Blender)
+- DAE/Collada
+- FBX
+- IFC-STEP
 - ASE
 - DXF
 - HMP
 - MD2
-- MD3 
+- MD3
 - MD5
 - MDC
 - MDL
 - NFF
 - PLY
 - STL
-- X 
-- OBJ 
+- X
+- OBJ
+- OpenGEX
 - SMD
-- LWO 
-- LXO 
-- LWS 
-- XML 
-- TER 
-- AC3D 
-- MS3D 
+- LWO
+- LXO
+- LWS  
+- TER
+- AC3D
+- MS3D
+- COB
+- Q3BSP
+- XGL
+- CSM
+- BVH
+- B3D
+- NDO
+- Ogre Binary
+- Ogre XML
+- Q3D
+- ASSBIN (Assimp custom format)
+- glTF
 
-Exporters include:
+Additionally, some formats are supported by dependency on non-free code or external SDKs (not built by default):
+
+- C4D (https://github.com/acgessler/assimp-cinema4d)
+
+__Exporters__:
 
 - DAE (Collada)
 - STL
 - OBJ
-	
-See [the full list here](http://assimp.sourceforge.net/main_features_formats.html).
+- PLY
+- X
+- 3DS
+- JSON (for WebGl, via https://github.com/acgessler/assimp2json)
+- ASSBIN
+- glTF
 
+### Building ###
+Take a look into the `INSTALL` file. Our build system is CMake, if you used CMake before there is a good chance you know what to do.
 
+### Ports ###
+* [Android](port/AndroidJNI/README.md)
+* [Python](port/PyAssimp/README.md)
+* [.NET](port/AssimpNET/Readme.md)
+* [Pascal](port/AssimpPascal/Readme.md)
 
-#### 1.2 Repository structure ####
+#### Repository structure ####
+Open Asset Import Library is implemented in C++. The directory structure is:
 
-
-Open Asset Import Library is implemented in C++ (but provides both a C and a 
-C++ish interface). The directory structure is:
-
-	/bin		Folder for binaries, only used on Windows
 	/code		Source code
 	/contrib	Third-party libraries
 	/doc		Documentation (doxysource and pre-compiled docs)
-	/include	Public header C and C++ header files.
-	/lib		Static library location for Windows.
-	/obj		Object file location for Windows.
-	/port		Ports to other languages and scripts to maintain those. 
-	/test		Unit- and regression tests, test suite of models.
-	/tools		Tools (viewer, command line `assimp`).
-	/samples	A small number of samples to illustrate possible 
-                        use cases for Assimp.
-	/workspaces	Build enviroments for vc,xcode,... (deprecated,
+	/include	Public header C and C++ header files
+	/scripts 	Scripts used to generate the loading code for some formats
+	/port		Ports to other languages and scripts to maintain those.
+	/test		Unit- and regression tests, test suite of models
+	/tools		Tools (old assimp viewer, command line `assimp`)
+	/samples	A small number of samples to illustrate possible
+                        use cases for Assimp
+	/workspaces	Build environments for vc,xcode,... (deprecated,
 			CMake has superseeded all legacy build options!)
 
 
-
-### 2. Build the library ###
-
-
-Take a look into the `INSTALL` file. Or fire up CMake with the usual steps.
-
-
-
-### 3. Where to get help ###
-
-
+### Where to get help ###
 For more information, visit [our website](http://assimp.sourceforge.net/). Or check out the `./doc`- folder, which contains the official documentation in HTML format.
 (CHMs for Windows are included in some release packages and should be located right here in the root folder).
 
-If the documentation doesn't solve your problems, try our forums at SF.net 
+If the docs don't solve your problem, ask on [StackOverflow](http://stackoverflow.com/questions/tagged/assimp?sort=newest). If you think you found a bug, please open an issue on Github.
 
+For development discussions, there is also a (very low-volume) mailing list, _assimp-discussions_
+  [(subscribe here)]( https://lists.sourceforge.net/lists/listinfo/assimp-discussions)
 
-- [Open Discussion](http://sourceforge.net/projects/assimp/forums/forum/817653) 
-- [General Help](http://sourceforge.net/projects/assimp/forums/forum/817654)
+And we also have an IRC-channel at freenode: #assetimporterlib . You can easily join us via: [KiwiIRC/freenote](https://kiwiirc.com/client/irc.freenode.net), choose your nickname and type
+> /join #assetimporterlib
 
+### Contributing ###
+Contributions to assimp are highly appreciated. The easiest way to get involved is to submit
+a pull request with your changes against the main repository's `master` branch.
 
-For development stuff, there is also a mailing list, _assimp-discussions_
-  [(subscribe here)]( https://lists.sourceforge.net/lists/listinfo/assimp-discussions) 
+### Donate ###
+If you like assimp, consider buying us a beer (or two):
+[Donate](http://sourceforge.net/donate/index.php?group_id=226462)
 
+### License ###
+Our license is based on the modified, __3-clause BSD__-License.
 
+An _informal_ summary is: do whatever you want, but include Assimp's license text with your product -
+and don't sue us if our code doesn't work. Note that, unlike LGPLed code, you may link statically to Assimp.
+For the legal details, see the `LICENSE` file.
 
-### 4. License ###
-
-The license of the Asset Import Library is based on the modified, __3-clause BSD__-License, which is a very liberal license. An _informal_ summary is: do whatever you want, but include Assimp's license text with your product - and don't sue us if our code doesn't work.
-
-Note that, unlike LGPLed code, you may link statically to Assimp.
-For the formal details, see the `LICENSE` file. 
-
-
-------------------------------
-
-(This repository is a mirror of the SVN repository located [here](https://assimp.svn.sourceforge.net/svnroot/assimp). Thanks to [klickverbot](https://github.com/klickverbot) for setting this up!)
+### Why this name ###
+Sorry, we're germans :-), no english native speakers ...
