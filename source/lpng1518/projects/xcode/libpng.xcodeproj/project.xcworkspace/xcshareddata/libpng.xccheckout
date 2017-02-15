@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>31449187-A54D-4B1E-AA75-35F59DEE4716</string>
+	<key>IDESourceControlProjectName</key>
+	<string>libpng</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DA6F661DD649F78B3D5A22E52AD1F5102743FEDB</key>
+		<string>github.com:SilkyPantsDan/pioneer-thirdparty.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>source/lpng1518/projects/xcode/libpng.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DA6F661DD649F78B3D5A22E52AD1F5102743FEDB</key>
+		<string>../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:SilkyPantsDan/pioneer-thirdparty.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DA6F661DD649F78B3D5A22E52AD1F5102743FEDB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DA6F661DD649F78B3D5A22E52AD1F5102743FEDB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>pioneer-thirdparty</string>
+		</dict>
+	</array>
+</dict>
+</plist>

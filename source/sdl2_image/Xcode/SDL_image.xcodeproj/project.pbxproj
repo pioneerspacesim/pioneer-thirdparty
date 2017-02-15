@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		007288A80F0DA79800C302A9 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007288A60F0DA79800C302A9 /* ApplicationServices.framework */; };
+		3701C49A1B19AB52000F4A72 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3701C4991B19AB52000F4A72 /* SDL2.framework */; };
 		AA579DF2161C07E6005F809B /* IMG_bmp.c in Sources */ = {isa = PBXBuildFile; fileRef = AA579DE2161C07E6005F809B /* IMG_bmp.c */; };
 		AA579DF3161C07E7005F809B /* IMG_bmp.c in Sources */ = {isa = PBXBuildFile; fileRef = AA579DE2161C07E6005F809B /* IMG_bmp.c */; };
 		AA579DF4161C07E7005F809B /* IMG_gif.c in Sources */ = {isa = PBXBuildFile; fileRef = AA579DE3161C07E6005F809B /* IMG_gif.c */; };
@@ -44,7 +45,6 @@
 		AADBAC89175C6B4C004F8ED2 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007288A60F0DA79800C302A9 /* ApplicationServices.framework */; };
 		AADBAC8A175C6B4F004F8ED2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F85449145A19BC002CA294 /* Foundation.framework */; };
 		BE1FA71A07AF4C44004B6283 /* SDL_image.h in Headers */ = {isa = PBXBuildFile; fileRef = 1014BAEA010A4B677F000001 /* SDL_image.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BE1FA76307AF7335004B6283 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1FA76207AF7335004B6283 /* SDL2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +74,7 @@
 /* Begin PBXFileReference section */
 		007288A60F0DA79800C302A9 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		1014BAEA010A4B677F000001 /* SDL_image.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SDL_image.h; path = ../SDL_image.h; sourceTree = SOURCE_ROOT; };
+		3701C4991B19AB52000F4A72 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../sdl2/Xcode/SDL/build/Debug/SDL2.framework; sourceTree = "<group>"; };
 		61F85449145A19BC002CA294 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AA579DE2161C07E6005F809B /* IMG_bmp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IMG_bmp.c; path = ../IMG_bmp.c; sourceTree = "<group>"; };
 		AA579DE3161C07E6005F809B /* IMG_gif.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IMG_gif.c; path = ../IMG_gif.c; sourceTree = "<group>"; };
@@ -107,9 +108,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3701C49A1B19AB52000F4A72 /* SDL2.framework in Frameworks */,
 				AADBAC89175C6B4C004F8ED2 /* ApplicationServices.framework in Frameworks */,
 				AADBAC8A175C6B4F004F8ED2 /* Foundation.framework in Frameworks */,
-				BE1FA76307AF7335004B6283 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +201,7 @@
 		BE1FA76107AF72F5004B6283 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3701C4991B19AB52000F4A72 /* SDL2.framework */,
 				BE1FA76007AF72B1004B6283 /* Linked Frameworks */,
 			);
 			name = Frameworks;
@@ -480,7 +482,6 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED)",
-					"$(HOME)/Library/Frameworks",
 					/Library/Frameworks,
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED = "\"$(SRCROOT)/Frameworks\"";
@@ -504,12 +505,13 @@
 					"$(HEADER_SEARCH_PATHS_QUOTED)",
 					"$(HOME)/Library/Frameworks/SDL.framework/Headers",
 					/Library/Frameworks/SDL.framework/Headers,
+					"$(SRCROOT)/../../sdl2/include",
 				);
 				HEADER_SEARCH_PATHS_QUOTED = "\"$(SRCROOT)/Frameworks/webp.framework/Headers\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = SDL2_image;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS_QUOTED) $(HOME)/Library/Frameworks/SDL2.framework/Headers /Library/Frameworks/SDL2.framework/Headers";
+				USER_HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS_QUOTED) /Library/Frameworks/SDL2.framework/Headers";
 			};
 			name = Debug;
 		};
@@ -518,10 +520,6 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks\"",
-				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Info-Framework.plist";
 				INSTALL_PATH = "@rpath";
@@ -599,7 +597,6 @@
 				DEPLOYMENT_POSTPROCESSING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED)",
-					"$(HOME)/Library/Frameworks",
 					/Library/Frameworks,
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED = "\"$(SRCROOT)/Frameworks\"";
@@ -623,6 +620,7 @@
 					"$(HEADER_SEARCH_PATHS_QUOTED)",
 					"$(HOME)/Library/Frameworks/SDL.framework/Headers",
 					/Library/Frameworks/SDL.framework/Headers,
+					"$(SRCROOT)/../../sdl2/include",
 				);
 				HEADER_SEARCH_PATHS_QUOTED = "\"$(SRCROOT)/Frameworks/webp.framework/Headers\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
@@ -630,7 +628,7 @@
 				SDKROOT = macosx;
 				SEPARATE_STRIP = YES;
 				STRIP_STYLE = "non-global";
-				USER_HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS_QUOTED) $(HOME)/Library/Frameworks/SDL2.framework/Headers /Library/Frameworks/SDL2.framework/Headers";
+				USER_HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS_QUOTED) /Library/Frameworks/SDL2.framework/Headers";
 			};
 			name = Release;
 		};
@@ -639,10 +637,6 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks\"",
-				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Info-Framework.plist";
 				INSTALL_PATH = "@rpath";
