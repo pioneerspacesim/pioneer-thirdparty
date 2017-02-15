@@ -1,0 +1,18 @@
+﻿Build started 14/09/2012 14:35:47.
+     1>Project "C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\tests\test_disconnect_during_emit\test_disconnect_during_emit.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\\" /I"C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\\.." /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\blank.cpp ..\..\..\tests\test_disconnect_during_emit.cc
+         test_disconnect_during_emit.cc
+         blank.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Debug\test_disconnect_during_emit.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Debug\test_disconnect.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Debug\test_disconnect_during_emit.lib" /MACHINE:X86 /SAFESEH Debug\blank.obj
+         Debug\test_disconnect_during_emit.obj
+         "C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\Debug\libsigc++.lib"
+     1>blank.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+         test_disconnect_during_emit.vcxproj -> C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\tests\test_disconnect_during_emit\Debug\test_disconnect_during_emit.exe
+     1>Done Building Project "C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\tests\test_disconnect_during_emit\test_disconnect_during_emit.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.37

@@ -1,0 +1,17 @@
+﻿Build started 14/09/2012 14:39:03.
+     1>Project "C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\tests\test_bind_return\test_bind_return.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\\" /I"C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\\.." /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\blank.cpp ..\..\..\tests\test_bind_return.cc
+         blank.cpp
+         test_bind_return.cc
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Release\test_bind_return.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Release\test_bind_return.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Release\test_bind_return.lib" /MACHINE:X86 /SAFESEH Release\blank.obj
+         Release\test_bind_return.obj
+         "C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\Release\sigc-vc2012-2_2_8.lib"
+         test_bind_return.vcxproj -> C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\tests\test_bind_return\Release\test_bind_return.exe
+     1>Done Building Project "C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\tests\test_bind_return\test_bind_return.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.74

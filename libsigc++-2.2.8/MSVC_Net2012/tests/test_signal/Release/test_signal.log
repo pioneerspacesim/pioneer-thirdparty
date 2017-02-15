@@ -1,0 +1,79 @@
+﻿Build started 14/09/2012 14:39:05.
+     1>Project "C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\tests\test_signal\test_signal.vcxproj" on node 7 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\\" /I"C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\\.." /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\blank.cpp ..\..\..\tests\test_signal.cc
+         blank.cpp
+         test_signal.cc
+     1>C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\sigc++/adaptors/adaptor_trait.h(82): warning C4244: 'argument' : conversion from 'const int' to 'const float', possible loss of data
+                 C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\sigc++/functors/slot.h(137) : see reference to function template instantiation 'int sigc::adaptor_functor<T_functor>::operator ()<const int&>(T_arg1) const' being compiled
+                 with
+                 [
+                     T_functor=sigc::pointer_functor1<float,int>,
+                     T_arg1=const int &
+                 ]
+                 C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\sigc++/functors/slot.h(137) : see reference to function template instantiation 'int sigc::adaptor_functor<T_functor>::operator ()<const int&>(T_arg1) const' being compiled
+                 with
+                 [
+                     T_functor=sigc::pointer_functor1<float,int>,
+                     T_arg1=const int &
+                 ]
+                 C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\sigc++/functors/slot.h(133) : while compiling class template member function 'int sigc::internal::slot_call1<T_functor,T_return,T_arg1>::call_it(sigc::internal::slot_rep *,const int &)'
+                 with
+                 [
+                     T_functor=sigc::pointer_functor1<float,int>,
+                     T_return=int,
+                     T_arg1=int
+                 ]
+                 C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\sigc++/functors/slot.h(144) : see reference to function template instantiation 'int sigc::internal::slot_call1<T_functor,T_return,T_arg1>::call_it(sigc::internal::slot_rep *,const int &)' being compiled
+                 with
+                 [
+                     T_functor=sigc::pointer_functor1<float,int>,
+                     T_return=int,
+                     T_arg1=int
+                 ]
+                 C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\sigc++/functors/slot.h(529) : see reference to class template instantiation 'sigc::internal::slot_call1<T_functor,T_return,T_arg1>' being compiled
+                 with
+                 [
+                     T_functor=sigc::pointer_functor1<float,int>,
+                     T_return=int,
+                     T_arg1=int
+                 ]
+                 C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\sigc++/functors/slot.h(1156) : see reference to function template instantiation 'sigc::slot1<T_return,T_arg1>::slot1<T_functor>(const T_functor &)' being compiled
+                 with
+                 [
+                     T_return=int,
+                     T_arg1=int,
+                     T_functor=sigc::pointer_functor1<float,int>
+                 ]
+                 C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\sigc++/functors/slot.h(1156) : see reference to function template instantiation 'sigc::slot1<T_return,T_arg1>::slot1<T_functor>(const T_functor &)' being compiled
+                 with
+                 [
+                     T_return=int,
+                     T_arg1=int,
+                     T_functor=sigc::pointer_functor1<float,int>
+                 ]
+                 ..\..\..\tests\test_signal.cc(39) : see reference to function template instantiation 'sigc::slot<T_return,T_arg1>::slot<sigc::pointer_functor1<float,T_return>>(const T_functor &)' being compiled
+                 with
+                 [
+                     T_return=int,
+                     T_arg1=int,
+                     T_functor=sigc::pointer_functor1<float,int>
+                 ]
+                 ..\..\..\tests\test_signal.cc(39) : see reference to function template instantiation 'sigc::slot<T_return,T_arg1>::slot<sigc::pointer_functor1<float,T_return>>(const T_functor &)' being compiled
+                 with
+                 [
+                     T_return=int,
+                     T_arg1=int,
+                     T_functor=sigc::pointer_functor1<float,int>
+                 ]
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Release\test_signal.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Release\test_signal.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Release\test_signal.lib" /MACHINE:X86 /SAFESEH Release\blank.obj
+         Release\test_signal.obj
+         "C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\Release\sigc-vc2012-2_2_8.lib"
+         test_signal.vcxproj -> C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\tests\test_signal\Release\test_signal.exe
+     1>Done Building Project "C:\Users\andrew\Desktop\libsigc++\libsigc++-2.2.8\MSVC_Net2012\tests\test_signal\test_signal.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.70
