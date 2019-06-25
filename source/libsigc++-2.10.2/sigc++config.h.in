@@ -1,16 +1,15 @@
-/* sigc++config.h.  Generated from sigc++config.h.in by configure.  */
 
 /* Define to omit deprecated API from the library. */
-/* #undef SIGCXX_DISABLE_DEPRECATED */
+#undef SIGCXX_DISABLE_DEPRECATED
 
 /* Major version number of sigc++. */
-#define SIGCXX_MAJOR_VERSION 2
+#undef SIGCXX_MAJOR_VERSION
 
 /* Micro version number of sigc++. */
-#define SIGCXX_MICRO_VERSION 2
+#undef SIGCXX_MICRO_VERSION
 
 /* Minor version number of sigc++. */
-#define SIGCXX_MINOR_VERSION 10
+#undef SIGCXX_MINOR_VERSION
 
 /* Detect Win32 platform */
 #ifdef _WIN32
@@ -58,17 +57,17 @@
 
 /* does the C++ compiler support the use of a particular specialization when
    calling operator() template methods. */
-# define SIGC_GCC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD 1
+# undef SIGC_GCC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
 
 /* Define if the non-standard Sun reverse_iterator must be used. */
-/* # undef SIGC_HAVE_SUN_REVERSE_ITERATOR */
+# undef SIGC_HAVE_SUN_REVERSE_ITERATOR
 
 /* does the C++ compiler support the use of a particular specialization when
    calling operator() template methods omitting the template keyword. */
-# define SIGC_MSVC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD 1
+# undef SIGC_MSVC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
 
 /* does the C++ preprocessor support pragma push_macro() and pop_macro(). */
-# define SIGC_PRAGMA_PUSH_POP_MACRO 1
+# undef SIGC_PRAGMA_PUSH_POP_MACRO
 
 #endif /* !SIGC_MSC */
 
