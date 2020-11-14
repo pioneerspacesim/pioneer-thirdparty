@@ -3,7 +3,9 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2016, assimp team
+Copyright (c) 2006-2019, assimp team
+
+
 
 All rights reserved.
 
@@ -42,10 +44,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "UnitTestPCH.h"
 #include <iostream>
 
-using namespace Assimp;
+using namespace ::Assimp;
 
 class utMatrix3x3Test : public ::testing::Test {
-
+    // empty
 };
 
 TEST_F( utMatrix3x3Test, FromToMatrixTest ) {
