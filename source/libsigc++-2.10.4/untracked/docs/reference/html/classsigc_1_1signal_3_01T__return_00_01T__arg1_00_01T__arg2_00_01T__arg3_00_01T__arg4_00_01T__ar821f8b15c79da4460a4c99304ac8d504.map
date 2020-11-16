@@ -1,0 +1,5 @@
+<map id="sigc::signal&lt; T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, nil &gt;" name="sigc::signal&lt; T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, nil &gt;">
+<area shape="rect" id="node2" href="$classsigc_1_1signal6.html" title="sigc::signal6\&lt; T_return,\l T_arg1, T_arg2, T_arg3,\l T_arg4, T_arg5, T_arg6, nil \&gt;" alt="" coords="5,155,219,211"/>
+<area shape="rect" id="node3" href="$structsigc_1_1signal__base.html" title="Base class for the sigc::signal# templates. " alt="" coords="45,80,179,107"/>
+<area shape="rect" id="node4" href="$structsigc_1_1trackable.html" title="Base class for objects with auto&#45;disconnection. " alt="" coords="54,5,170,32"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="sigc::track_obj_functor5&lt; T_functor, T_obj1, T_obj2, T_obj3, T_obj4, T_obj5 &gt;" name="sigc::track_obj_functor5&lt; T_functor, T_obj1, T_obj2, T_obj3, T_obj4, T_obj5 &gt;">
+<area shape="rect" id="node2" href="$classsigc_1_1track__obj__functor1.html" title="track_obj_functor1 wraps a functor and stores a reference to a trackable object. " alt="" coords="29,229,207,271"/>
+<area shape="rect" id="node3" href="$structsigc_1_1adapts.html" title="Base type for adaptors. " alt="" coords="23,155,213,181"/>
+<area shape="rect" id="node4" href="$structsigc_1_1adaptor__base.html" title="A hint to the compiler. " alt="" coords="46,80,190,107"/>
+<area shape="rect" id="node5" href="$structsigc_1_1functor__base.html" title="A hint to the compiler. " alt="" coords="48,5,188,32"/>
+</map>

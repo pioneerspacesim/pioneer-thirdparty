@@ -1,0 +1,5 @@
+<map id="sigc::slot6&lt; T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6 &gt;" name="sigc::slot6&lt; T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6 &gt;">
+<area shape="rect" id="node4" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01T__arg2_00_01T__arg3_00_01T__arg4_00_01T__arg5_00_01T__arg6_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot6 template. " alt="" coords="5,259,219,315"/>
+<area shape="rect" id="node2" href="$classsigc_1_1slot__base.html" title="Base type for slots. " alt="" coords="53,80,171,107"/>
+<area shape="rect" id="node3" href="$structsigc_1_1functor__base.html" title="A hint to the compiler. " alt="" coords="42,5,182,32"/>
+</map>

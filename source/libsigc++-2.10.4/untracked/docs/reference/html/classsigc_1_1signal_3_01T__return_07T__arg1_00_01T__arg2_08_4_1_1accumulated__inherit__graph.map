@@ -1,0 +1,5 @@
+<map id="sigc::signal&lt; T_return(T_arg1, T_arg2)&gt;::accumulated&lt; T_accumulator &gt;" name="sigc::signal&lt; T_return(T_arg1, T_arg2)&gt;::accumulated&lt; T_accumulator &gt;">
+<area shape="rect" id="node2" href="$classsigc_1_1signal2.html" title="Signal declaration. " alt="" coords="5,155,247,196"/>
+<area shape="rect" id="node3" href="$structsigc_1_1signal__base.html" title="Base class for the sigc::signal# templates. " alt="" coords="59,80,193,107"/>
+<area shape="rect" id="node4" href="$structsigc_1_1trackable.html" title="Base class for objects with auto&#45;disconnection. " alt="" coords="68,5,184,32"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="sigc::track_obj_functor1&lt; T_functor, T_obj1 &gt;" name="sigc::track_obj_functor1&lt; T_functor, T_obj1 &gt;">
+<area shape="rect" id="node5" href="$classsigc_1_1track__obj__functor2.html" title="track_obj_functor2 wraps a functor and stores 2 references to trackable objects. " alt="" coords="849,5,1027,47"/>
+<area shape="rect" id="node6" href="$classsigc_1_1track__obj__functor3.html" title="track_obj_functor3 wraps a functor and stores 3 references to trackable objects. " alt="" coords="849,71,1027,112"/>
+<area shape="rect" id="node7" href="$classsigc_1_1track__obj__functor4.html" title="track_obj_functor4 wraps a functor and stores 4 references to trackable objects. " alt="" coords="849,136,1027,177"/>
+<area shape="rect" id="node8" href="$classsigc_1_1track__obj__functor5.html" title="track_obj_functor5 wraps a functor and stores 5 references to trackable objects. " alt="" coords="849,201,1027,243"/>
+<area shape="rect" id="node9" href="$classsigc_1_1track__obj__functor6.html" title="track_obj_functor6 wraps a functor and stores 6 references to trackable objects. " alt="" coords="849,267,1027,308"/>
+<area shape="rect" id="node10" href="$classsigc_1_1track__obj__functor7.html" title="track_obj_functor7 wraps a functor and stores 7 references to trackable objects. " alt="" coords="849,332,1027,373"/>
+<area shape="rect" id="node2" href="$structsigc_1_1adapts.html" title="Base type for adaptors. " alt="" coords="385,177,576,203"/>
+<area shape="rect" id="node3" href="$structsigc_1_1adaptor__base.html" title="A hint to the compiler. " alt="" coords="193,177,337,203"/>
+<area shape="rect" id="node4" href="$structsigc_1_1functor__base.html" title="A hint to the compiler. " alt="" coords="5,177,145,203"/>
+</map>
