@@ -1,0 +1,5 @@
+<map id="sigc::slot&lt; T_return, T_arg1, nil, nil, nil, nil, nil, nil &gt;" name="sigc::slot&lt; T_return, T_arg1, nil, nil, nil, nil, nil, nil &gt;">
+<area shape="rect" id="node2" href="$classsigc_1_1slot1.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="5,155,167,196"/>
+<area shape="rect" id="node3" href="$classsigc_1_1slot__base.html" title="Base type for slots. " alt="" coords="27,80,145,107"/>
+<area shape="rect" id="node4" href="$structsigc_1_1functor__base.html" title="A hint to the compiler. " alt="" coords="16,5,156,32"/>
+</map>

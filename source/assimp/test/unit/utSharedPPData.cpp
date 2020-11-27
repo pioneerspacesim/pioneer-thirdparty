@@ -3,7 +3,9 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2016, assimp team
+Copyright (c) 2006-2019, assimp team
+
+
 
 All rights reserved.
 
@@ -41,21 +43,18 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "UnitTestPCH.h"
 
 #include <assimp/scene.h>
-#include <BaseProcess.h>
 
+#include "Common/BaseProcess.h"
 
 using namespace std;
 using namespace Assimp;
 
-class SharedPPDataTest : public ::testing::Test
-{
+class SharedPPDataTest : public ::testing::Test {
 public:
-
     virtual void SetUp();
     virtual void TearDown();
 
 protected:
-
     SharedPostProcessInfo* shared;
 };
 
@@ -76,7 +75,7 @@ TEST_F(SharedPPDataTest, testPODProperty)
 {
     int i = 5;
     shared->AddProperty("test",i);
-    int o;
+	int o = 0;
     EXPECT_TRUE(shared->GetProperty("test",o));
     EXPECT_EQ(5, o);
     EXPECT_FALSE(shared->GetProperty("test2",o));
@@ -91,7 +90,7 @@ TEST_F(SharedPPDataTest, testPODProperty)
 // ------------------------------------------------------------------------------------------------
 TEST_F(SharedPPDataTest, testPropertyPointer)
 {
-    int *i = new int[35];
+    int *i = new int;
     shared->AddProperty("test16",i);
     int* o;
     EXPECT_TRUE(shared->GetProperty("test16",o));

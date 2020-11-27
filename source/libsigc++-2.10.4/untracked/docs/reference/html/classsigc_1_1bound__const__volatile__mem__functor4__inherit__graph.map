@@ -1,0 +1,4 @@
+<map id="sigc::bound_const_volatile_mem_functor4&lt; T_return, T_obj, T_arg1, T_arg2, T_arg3, T_arg4 &gt;" name="sigc::bound_const_volatile_mem_functor4&lt; T_return, T_obj, T_arg1, T_arg2, T_arg3, T_arg4 &gt;">
+<area shape="rect" id="node2" href="$classsigc_1_1const__volatile__mem__functor4.html" title="const_volatile_mem_functor4 wraps const volatile methods with 4 argument(s). " alt="" coords="193,5,391,76"/>
+<area shape="rect" id="node3" href="$structsigc_1_1functor__base.html" title="A hint to the compiler. " alt="" coords="5,27,145,54"/>
+</map>

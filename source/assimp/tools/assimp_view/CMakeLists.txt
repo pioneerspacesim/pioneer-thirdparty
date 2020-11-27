@@ -1,7 +1,9 @@
 # Open Asset Import Library (assimp)
 # ----------------------------------------------------------------------
 # 
-# Copyright (c) 2006-2016, assimp team
+# Copyright (c) 2006-2019, assimp team
+
+
 # All rights reserved.
 #
 # Redistribution and use of this software in source and binary forms,
@@ -62,6 +64,7 @@ ADD_EXECUTABLE(  assimp_viewer WIN32
   Normals.cpp
   SceneAnimator.cpp
   Shaders.cpp
+  assimp_view.h
   assimp_view.cpp
   stdafx.cpp
   assimp_view.rc
@@ -85,6 +88,8 @@ SET_PROPERTY(TARGET assimp_viewer PROPERTY DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
 IF ( MSVC )
   ADD_DEFINITIONS( -D_SCL_SECURE_NO_WARNINGS )
   ADD_DEFINITIONS( -D_CRT_SECURE_NO_WARNINGS )
+  # assimp_viewer is ANSI (MBCS) throughout
+  REMOVE_DEFINITIONS( -DUNICODE -D_UNICODE )
 ENDIF ( MSVC )
 
 

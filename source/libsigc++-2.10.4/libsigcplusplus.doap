@@ -1,0 +1,36 @@
+<Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:gnome="http://api.gnome.org/doap-extensions#"
+         xmlns="http://usefulinc.com/ns/doap#">
+
+  <name xml:lang="en">libsigc++</name>
+  <shortdesc xml:lang="en">Typesafe callback framework for C++</shortdesc>
+  <description>libsigc++ implements a typesafe callback system for standard C++.
+It allows you to define signals and to connect those signals to any
+callback function, either global or a member function, regardless of
+whether it is static or virtual.
+
+libsigc++ is also used by glibmm and gtkmm to wrap Glib and GTK+ signals.</description>
+  <homepage rdf:resource="https://libsigcplusplus.github.io/libsigcplusplus/" />
+  <bug-database rdf:resource="https://github.com/libsigcplusplus/libsigcplusplus/issues/" />
+  <mailing-list rdf:resource="mailto:libsigc-list@gnome.org" />
+  <category rdf:resource="http://api.gnome.org/doap-extensions#core" />
+  <programming-language>C++</programming-language>
+  <download-page rdf:resource="http://download.gnome.org/sources/libsigc++/" />
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Murray Cumming</foaf:name>
+      <foaf:mbox rdf:resource="mailto:murrayc@murrayc.com" />
+      <gnome:userid>murrayc</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Kjell Ahlstedt</foaf:name>
+      <foaf:mbox rdf:resource="mailto:kjellahlstedt@gmail.com" />
+      <gnome:userid>kjellahl</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+</Project>

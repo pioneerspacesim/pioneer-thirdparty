@@ -1,0 +1,20 @@
+<map id="sigc::slot_base" name="sigc::slot_base">
+<area shape="rect" id="node3" href="$classsigc_1_1slot0.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="369,31,541,57"/>
+<area shape="rect" id="node5" href="$classsigc_1_1slot1.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="374,99,535,141"/>
+<area shape="rect" id="node7" href="$classsigc_1_1slot2.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="374,179,535,221"/>
+<area shape="rect" id="node9" href="$classsigc_1_1slot3.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="360,254,549,295"/>
+<area shape="rect" id="node11" href="$classsigc_1_1slot4.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="365,323,544,379"/>
+<area shape="rect" id="node13" href="$classsigc_1_1slot5.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="365,403,544,459"/>
+<area shape="rect" id="node15" href="$classsigc_1_1slot6.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="360,483,549,539"/>
+<area shape="rect" id="node17" href="$classsigc_1_1slot7.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="365,563,544,634"/>
+<area shape="rect" id="node19" href="$classsigc_1_1slot_3_01T__return_07T__arg_8_8_8_08_4.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="380,658,529,699"/>
+<area shape="rect" id="node2" href="$structsigc_1_1functor__base.html" title="A hint to the compiler. " alt="" coords="5,337,145,364"/>
+<area shape="rect" id="node4" href="$classsigc_1_1slot_3_01T__return_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot0 template. " alt="" coords="627,5,781,61"/>
+<area shape="rect" id="node6" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot1 template. " alt="" coords="627,85,781,141"/>
+<area shape="rect" id="node8" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01T__arg2_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot2 template. " alt="" coords="627,165,781,221"/>
+<area shape="rect" id="node10" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01T__arg2_00_01T__arg3_00_01nil_00_01nil_00_01nil_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot3 template. " alt="" coords="615,245,793,301"/>
+<area shape="rect" id="node12" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01T__arg2_00_01T__arg3_00_01T__arg4_00_01nil_00_01nil_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot4 template. " alt="" coords="615,325,793,381"/>
+<area shape="rect" id="node14" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01T__arg2_00_01T__arg3_00_01T__arg4_00_01T__arg5_00_01nil_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot5 template. " alt="" coords="611,405,797,461"/>
+<area shape="rect" id="node16" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01T__arg2_00_01T__arg3_00_01T__arg4_00_01T__arg5_00_01T__arg6_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot6 template. " alt="" coords="597,485,811,541"/>
+<area shape="rect" id="node18" href="$classsigc_1_1slot.html" title="Convenience wrapper for the numbered sigc::slot# templates. " alt="" coords="615,566,793,637"/>
+</map>

@@ -1,6 +1,6 @@
 /*
   Simple DirectMedia Layer
-  Copyright (C) 1997-2017 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2020 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -21,6 +21,7 @@
 #include "../../SDL_internal.h"
 
 #if SDL_VIDEO_DRIVER_COCOA
+
 #include "SDL_timer.h"
 
 #include "SDL_cocoavideo.h"
@@ -37,6 +38,8 @@
 
 - (void)terminate:(id)sender;
 - (void)sendEvent:(NSEvent *)theEvent;
+
++ (void)registerUserDefaults;
 
 @end
 
@@ -88,6 +91,17 @@ static void Cocoa_DispatchEvent(NSEvent *theEvent)
     }
 
     [super sendEvent:theEvent];
+}
+
++ (void)registerUserDefaults
+{
+    NSDictionary *appDefaults = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 [NSNumber numberWithBool:NO], @"AppleMomentumScrollSupported",
+                                 [NSNumber numberWithBool:NO], @"ApplePressAndHoldEnabled",
+                                 [NSNumber numberWithBool:YES], @"ApplePersistenceIgnoreState",
+                                 nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+    [appDefaults release];
 }
 
 @end // SDLApplication
@@ -225,8 +239,18 @@ static void Cocoa_DispatchEvent(NSEvent *theEvent)
      * of here. https://bugzilla.libsdl.org/show_bug.cgi?id=3051
      */
     if (!SDL_GetHintBoolean(SDL_HINT_MAC_BACKGROUND_APP, SDL_FALSE)) {
+        /* Get more aggressive for Catalina: activate the Dock first so we definitely reset all activation state. */
+        for (NSRunningApplication *i in [NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.apple.dock"]) {
+            [i activateWithOptions:NSApplicationActivateIgnoringOtherApps];
+            break;
+        }
+        SDL_Delay(300);  /* !!! FIXME: this isn't right. */
         [NSApp activateIgnoringOtherApps:YES];
     }
+
+    /* If we call this before NSApp activation, macOS might print a complaint
+     * about ApplePersistenceIgnoreState. */
+    [SDLApplication registerUserDefaults];
 }
 @end
 
@@ -250,6 +274,25 @@ GetApplicationName(void)
     return appName;
 }
 
+static bool
+LoadMainMenuNibIfAvailable(void)
+{
+    NSDictionary *infoDict;
+    NSString *mainNibFileName;
+    bool success = false;
+    
+    infoDict = [[NSBundle mainBundle] infoDictionary];
+    if (infoDict) {
+        mainNibFileName = [infoDict valueForKey:@"NSMainNibFile"];
+        
+        if (mainNibFileName) {
+            success = [[NSBundle mainBundle] loadNibNamed:mainNibFileName owner:[NSApplication sharedApplication] topLevelObjects:nil];
+        }
+    }
+    
+    return success;
+}
+
 static void
 CreateApplicationMenus(void)
 {
@@ -258,14 +301,13 @@ CreateApplicationMenus(void)
     NSMenu *appleMenu;
     NSMenu *serviceMenu;
     NSMenu *windowMenu;
-    NSMenu *viewMenu;
     NSMenuItem *menuItem;
     NSMenu *mainMenu;
 
     if (NSApp == nil) {
         return;
     }
-
+    
     mainMenu = [[NSMenu alloc] init];
 
     /* Create the main menu bar */
@@ -325,9 +367,22 @@ CreateApplicationMenus(void)
     windowMenu = [[NSMenu alloc] initWithTitle:@"Window"];
 
     /* Add menu items */
+    [windowMenu addItemWithTitle:@"Close" action:@selector(performClose:) keyEquivalent:@"w"];
+
     [windowMenu addItemWithTitle:@"Minimize" action:@selector(performMiniaturize:) keyEquivalent:@"m"];
 
     [windowMenu addItemWithTitle:@"Zoom" action:@selector(performZoom:) keyEquivalent:@""];
+    
+    /* Add the fullscreen toggle menu option, if supported */
+    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_6) {
+        /* Cocoa should update the title to Enter or Exit Full Screen automatically.
+         * But if not, then just fallback to Toggle Full Screen.
+         */
+        menuItem = [[NSMenuItem alloc] initWithTitle:@"Toggle Full Screen" action:@selector(toggleFullScreen:) keyEquivalent:@"f"];
+        [menuItem setKeyEquivalentModifierMask:NSEventModifierFlagControl | NSEventModifierFlagCommand];
+        [windowMenu addItem:menuItem];
+        [menuItem release];
+    }
 
     /* Put menu into the menubar */
     menuItem = [[NSMenuItem alloc] initWithTitle:@"Window" action:nil keyEquivalent:@""];
@@ -338,25 +393,6 @@ CreateApplicationMenus(void)
     /* Tell the application object that this is now the window menu */
     [NSApp setWindowsMenu:windowMenu];
     [windowMenu release];
-
-
-    /* Add the fullscreen view toggle menu option, if supported */
-    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_6) {
-        /* Create the view menu */
-        viewMenu = [[NSMenu alloc] initWithTitle:@"View"];
-
-        /* Add menu items */
-        menuItem = [viewMenu addItemWithTitle:@"Toggle Full Screen" action:@selector(toggleFullScreen:) keyEquivalent:@"f"];
-        [menuItem setKeyEquivalentModifierMask:NSEventModifierFlagControl | NSEventModifierFlagCommand];
-
-        /* Put menu into the menubar */
-        menuItem = [[NSMenuItem alloc] initWithTitle:@"View" action:nil keyEquivalent:@""];
-        [menuItem setSubmenu:viewMenu];
-        [[NSApp mainMenu] addItem:menuItem];
-        [menuItem release];
-
-        [viewMenu release];
-    }
 }
 
 void
@@ -373,19 +409,27 @@ Cocoa_RegisterApp(void)
 
         if (!SDL_GetHintBoolean(SDL_HINT_MAC_BACKGROUND_APP, SDL_FALSE)) {
             [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
-		}
-		
+        }
+
+        /* If there aren't already menus in place, look to see if there's
+         * a nib we should use. If not, then manually create the basic
+         * menus we meed.
+         */
         if ([NSApp mainMenu] == nil) {
-            CreateApplicationMenus();
+            bool nibLoaded;
+            
+            nibLoaded = LoadMainMenuNibIfAvailable();
+            if (!nibLoaded) {
+                CreateApplicationMenus();
+            }
         }
         [NSApp finishLaunching];
-        NSDictionary *appDefaults = [[NSDictionary alloc] initWithObjectsAndKeys:
-            [NSNumber numberWithBool:NO], @"AppleMomentumScrollSupported",
-            [NSNumber numberWithBool:NO], @"ApplePressAndHoldEnabled",
-            [NSNumber numberWithBool:YES], @"ApplePersistenceIgnoreState",
-            nil];
-        [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
-        [appDefaults release];
+        if ([NSApp delegate]) {
+            /* The SDL app delegate calls this in didFinishLaunching if it's
+             * attached to the NSApp, otherwise we need to call it manually.
+             */
+            [SDLApplication registerUserDefaults];
+        }
     }
     if (NSApp && !appDelegate) {
         appDelegate = [[SDLAppDelegate alloc] init];

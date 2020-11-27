@@ -1,0 +1,116 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$structsigc_1_1functor__base.html" title="A hint to the compiler. " alt="" coords="5,2311,145,2338"/>
+<area shape="rect" id="node2" href="$structsigc_1_1adaptor__base.html" title="A hint to the compiler. " alt="" coords="227,479,371,506"/>
+<area shape="rect" id="node25" href="$classsigc_1_1const__mem__functor0.html" title="const_mem_functor0 wraps const methods with 0 argument(s). " alt="" coords="202,583,395,624"/>
+<area shape="rect" id="node27" href="$classsigc_1_1const__mem__functor1.html" title="const_mem_functor1 wraps const methods with 1 argument(s). " alt="" coords="198,655,399,696"/>
+<area shape="rect" id="node29" href="$classsigc_1_1const__mem__functor2.html" title="const_mem_functor2 wraps const methods with 2 argument(s). " alt="" coords="202,729,395,785"/>
+<area shape="rect" id="node31" href="$classsigc_1_1const__mem__functor3.html" title="const_mem_functor3 wraps const methods with 3 argument(s). " alt="" coords="202,818,395,874"/>
+<area shape="rect" id="node33" href="$classsigc_1_1const__mem__functor4.html" title="const_mem_functor4 wraps const methods with 4 argument(s). " alt="" coords="202,907,395,963"/>
+<area shape="rect" id="node35" href="$classsigc_1_1const__mem__functor5.html" title="const_mem_functor5 wraps const methods with 5 argument(s). " alt="" coords="202,993,395,1064"/>
+<area shape="rect" id="node37" href="$classsigc_1_1const__mem__functor6.html" title="const_mem_functor6 wraps const methods with 6 argument(s). " alt="" coords="202,1092,395,1163"/>
+<area shape="rect" id="node39" href="$classsigc_1_1const__mem__functor7.html" title="const_mem_functor7 wraps const methods with 7 argument(s). " alt="" coords="202,1187,395,1257"/>
+<area shape="rect" id="node41" href="$classsigc_1_1const__volatile__mem__functor0.html" title="const_volatile_mem_functor0 wraps const volatile methods with 0 argument(s). " alt="" coords="200,1282,397,1338"/>
+<area shape="rect" id="node43" href="$classsigc_1_1const__volatile__mem__functor1.html" title="const_volatile_mem_functor1 wraps const volatile methods with 1 argument(s). " alt="" coords="200,1362,397,1418"/>
+<area shape="rect" id="node45" href="$classsigc_1_1const__volatile__mem__functor2.html" title="const_volatile_mem_functor2 wraps const volatile methods with 2 argument(s). " alt="" coords="200,1442,397,1498"/>
+<area shape="rect" id="node47" href="$classsigc_1_1const__volatile__mem__functor3.html" title="const_volatile_mem_functor3 wraps const volatile methods with 3 argument(s). " alt="" coords="200,1523,397,1593"/>
+<area shape="rect" id="node49" href="$classsigc_1_1const__volatile__mem__functor4.html" title="const_volatile_mem_functor4 wraps const volatile methods with 4 argument(s). " alt="" coords="200,1617,397,1688"/>
+<area shape="rect" id="node51" href="$classsigc_1_1const__volatile__mem__functor5.html" title="const_volatile_mem_functor5 wraps const volatile methods with 5 argument(s). " alt="" coords="200,1712,397,1783"/>
+<area shape="rect" id="node53" href="$classsigc_1_1const__volatile__mem__functor6.html" title="const_volatile_mem_functor6 wraps const volatile methods with 6 argument(s). " alt="" coords="200,1807,397,1893"/>
+<area shape="rect" id="node55" href="$classsigc_1_1const__volatile__mem__functor7.html" title="const_volatile_mem_functor7 wraps const volatile methods with 7 argument(s). " alt="" coords="200,1917,397,2002"/>
+<area shape="rect" id="node57" href="$classsigc_1_1mem__functor0.html" title="mem_functor0 wraps methods with 0 argument(s). " alt="" coords="223,2027,374,2068"/>
+<area shape="rect" id="node59" href="$classsigc_1_1mem__functor1.html" title="mem_functor1 wraps methods with 1 argument(s). " alt="" coords="223,2093,374,2149"/>
+<area shape="rect" id="node61" href="$classsigc_1_1mem__functor2.html" title="mem_functor2 wraps methods with 2 argument(s). " alt="" coords="223,2173,374,2229"/>
+<area shape="rect" id="node63" href="$classsigc_1_1mem__functor3.html" title="mem_functor3 wraps methods with 3 argument(s). " alt="" coords="210,2253,387,2309"/>
+<area shape="rect" id="node65" href="$classsigc_1_1mem__functor4.html" title="mem_functor4 wraps methods with 4 argument(s). " alt="" coords="215,2333,382,2404"/>
+<area shape="rect" id="node67" href="$classsigc_1_1mem__functor5.html" title="mem_functor5 wraps methods with 5 argument(s). " alt="" coords="215,2428,382,2499"/>
+<area shape="rect" id="node69" href="$classsigc_1_1mem__functor6.html" title="mem_functor6 wraps methods with 6 argument(s). " alt="" coords="204,2523,393,2593"/>
+<area shape="rect" id="node71" href="$classsigc_1_1mem__functor7.html" title="mem_functor7 wraps methods with 7 argument(s). " alt="" coords="209,2618,388,2703"/>
+<area shape="rect" id="node73" href="$classsigc_1_1pointer__functor0.html" title="pointer_functor0 wraps existing non&#45;member functions with 0 argument(s). " alt="" coords="217,2728,380,2769"/>
+<area shape="rect" id="node74" href="$classsigc_1_1pointer__functor1.html" title="pointer_functor1 wraps existing non&#45;member functions with 1 argument(s). " alt="" coords="217,2793,380,2835"/>
+<area shape="rect" id="node75" href="$classsigc_1_1pointer__functor2.html" title="pointer_functor2 wraps existing non&#45;member functions with 2 argument(s). " alt="" coords="193,2859,404,2900"/>
+<area shape="rect" id="node76" href="$classsigc_1_1pointer__functor3.html" title="pointer_functor3 wraps existing non&#45;member functions with 3 argument(s). " alt="" coords="204,2925,393,2981"/>
+<area shape="rect" id="node77" href="$classsigc_1_1pointer__functor4.html" title="pointer_functor4 wraps existing non&#45;member functions with 4 argument(s). " alt="" coords="204,3005,393,3061"/>
+<area shape="rect" id="node78" href="$classsigc_1_1pointer__functor5.html" title="pointer_functor5 wraps existing non&#45;member functions with 5 argument(s). " alt="" coords="199,3085,398,3141"/>
+<area shape="rect" id="node79" href="$classsigc_1_1pointer__functor6.html" title="pointer_functor6 wraps existing non&#45;member functions with 6 argument(s). " alt="" coords="204,3165,393,3236"/>
+<area shape="rect" id="node80" href="$classsigc_1_1pointer__functor7.html" title="pointer_functor7 wraps existing non&#45;member functions with 7 argument(s). " alt="" coords="204,3260,393,3331"/>
+<area shape="rect" id="node81" href="$classsigc_1_1slot__base.html" title="Base type for slots. " alt="" coords="239,3355,358,3382"/>
+<area shape="rect" id="node99" href="$classsigc_1_1volatile__mem__functor0.html" title="volatile_mem_functor0 wraps volatile methods with 0 argument(s). " alt="" coords="221,3406,377,3462"/>
+<area shape="rect" id="node101" href="$classsigc_1_1volatile__mem__functor1.html" title="volatile_mem_functor1 wraps volatile methods with 1 argument(s). " alt="" coords="221,3486,377,3542"/>
+<area shape="rect" id="node103" href="$classsigc_1_1volatile__mem__functor2.html" title="volatile_mem_functor2 wraps volatile methods with 2 argument(s). " alt="" coords="209,3566,389,3622"/>
+<area shape="rect" id="node105" href="$classsigc_1_1volatile__mem__functor3.html" title="volatile_mem_functor3 wraps volatile methods with 3 argument(s). " alt="" coords="214,3647,383,3717"/>
+<area shape="rect" id="node107" href="$classsigc_1_1volatile__mem__functor4.html" title="volatile_mem_functor4 wraps volatile methods with 4 argument(s). " alt="" coords="214,3741,383,3812"/>
+<area shape="rect" id="node109" href="$classsigc_1_1volatile__mem__functor5.html" title="volatile_mem_functor5 wraps volatile methods with 5 argument(s). " alt="" coords="204,3837,393,3908"/>
+<area shape="rect" id="node111" href="$classsigc_1_1volatile__mem__functor6.html" title="volatile_mem_functor6 wraps volatile methods with 6 argument(s). " alt="" coords="209,3934,388,4019"/>
+<area shape="rect" id="node113" href="$classsigc_1_1volatile__mem__functor7.html" title="volatile_mem_functor7 wraps volatile methods with 7 argument(s). " alt="" coords="209,4047,388,4133"/>
+<area shape="rect" id="node3" href="$structsigc_1_1adapts.html" title="sigc::adapts\&lt; T_setter \&gt;" alt="" coords="477,86,659,113"/>
+<area shape="rect" id="node6" href="$structsigc_1_1adaptor__functor.html" title="Converts an arbitrary functor into an adaptor type. " alt="" coords="489,443,647,484"/>
+<area shape="rect" id="node7" href="$structsigc_1_1adapts.html" title="Base type for adaptors. " alt="" coords="473,509,663,535"/>
+<area shape="rect" id="node4" href="$structsigc_1_1compose1__functor.html" title="Adaptor that combines two functors. " alt="" coords="751,5,927,47"/>
+<area shape="rect" id="node5" href="$structsigc_1_1compose2__functor.html" title="Adaptor that combines three functors. " alt="" coords="751,71,927,127"/>
+<area shape="rect" id="node8" href="$structsigc_1_1bind__functor_3_010_00_01T__functor_00_01T__bound_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_01_4.html" title="Adaptor that binds an argument to the wrapped functor. " alt="" coords="748,151,929,207"/>
+<area shape="rect" id="node9" href="$structsigc_1_1bind__functor_3-1_00_01T__functor_00_01T__type1_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_01_4.html" title="Adaptor that binds 1 argument(s) to the wrapped functor. " alt="" coords="749,231,928,287"/>
+<area shape="rect" id="node10" href="$structsigc_1_1bind__return__functor.html" title="Adaptor that fixes the return value of the wrapped functor. " alt="" coords="747,312,930,353"/>
+<area shape="rect" id="node11" href="$structsigc_1_1exception__catch__functor.html" title="sigc::exception_catch\l_functor\&lt; T_functor,\l T_catcher, T_return \&gt;" alt="" coords="755,378,922,434"/>
+<area shape="rect" id="node12" href="$structsigc_1_1exception__catch__functor_3_01T__functor_00_01T__catcher_00_01void_01_4.html" title="sigc::exception_catch\l_functor\&lt; T_functor,\l T_catcher, void \&gt;" alt="" coords="757,458,920,514"/>
+<area shape="rect" id="node13" href="$structsigc_1_1hide__functor_3_010_00_01T__functor_01_4.html" title="Adaptor that adds a dummy parameter to the wrapped functor. " alt="" coords="770,539,907,580"/>
+<area shape="rect" id="node14" href="$structsigc_1_1hide__functor_3-1_00_01T__functor_01_4.html" title="Adaptor that adds a dummy parameter to the wrapped functor. " alt="" coords="770,604,907,645"/>
+<area shape="rect" id="node15" href="$structsigc_1_1retype__functor.html" title="Adaptor that performs C&#45;style casts on the parameters passed on to the functor. " alt="" coords="732,669,945,740"/>
+<area shape="rect" id="node16" href="$structsigc_1_1retype__return__functor.html" title="Adaptor that performs a C&#45;style cast on the return value of a functor. " alt="" coords="765,765,913,821"/>
+<area shape="rect" id="node17" href="$structsigc_1_1retype__return__functor_3_01void_00_01T__functor_01_4.html" title="Adaptor that performs a C&#45;style cast on the return value of a functor. " alt="" coords="737,845,940,887"/>
+<area shape="rect" id="node18" href="$classsigc_1_1track__obj__functor1.html" title="track_obj_functor1 wraps a functor and stores a reference to a trackable object. " alt="" coords="750,911,927,952"/>
+<area shape="rect" id="node19" href="$classsigc_1_1track__obj__functor2.html" title="track_obj_functor2 wraps a functor and stores 2 references to trackable objects. " alt="" coords="999,717,1213,759"/>
+<area shape="rect" id="node20" href="$classsigc_1_1track__obj__functor3.html" title="track_obj_functor3 wraps a functor and stores 3 references to trackable objects. " alt="" coords="1017,783,1195,839"/>
+<area shape="rect" id="node21" href="$classsigc_1_1track__obj__functor4.html" title="track_obj_functor4 wraps a functor and stores 4 references to trackable objects. " alt="" coords="1017,863,1195,919"/>
+<area shape="rect" id="node22" href="$classsigc_1_1track__obj__functor5.html" title="track_obj_functor5 wraps a functor and stores 5 references to trackable objects. " alt="" coords="993,943,1219,999"/>
+<area shape="rect" id="node23" href="$classsigc_1_1track__obj__functor6.html" title="track_obj_functor6 wraps a functor and stores 6 references to trackable objects. " alt="" coords="1017,1024,1195,1095"/>
+<area shape="rect" id="node24" href="$classsigc_1_1track__obj__functor7.html" title="track_obj_functor7 wraps a functor and stores 7 references to trackable objects. " alt="" coords="1017,1119,1195,1189"/>
+<area shape="rect" id="node26" href="$classsigc_1_1bound__const__mem__functor0.html" title="bound_const_mem_functor0 encapsulates a const method with 0 arguments and an object instance..." alt="" coords="479,559,657,615"/>
+<area shape="rect" id="node28" href="$classsigc_1_1bound__const__mem__functor1.html" title="bound_const_mem_functor1 encapsulates a const method with 1 arguments and an object instance..." alt="" coords="479,639,657,695"/>
+<area shape="rect" id="node30" href="$classsigc_1_1bound__const__mem__functor2.html" title="bound_const_mem_functor2 encapsulates a const method with 2 arguments and an object instance..." alt="" coords="478,719,658,775"/>
+<area shape="rect" id="node32" href="$classsigc_1_1bound__const__mem__functor3.html" title="bound_const_mem_functor3 encapsulates a const method with 3 arguments and an object instance..." alt="" coords="479,800,657,871"/>
+<area shape="rect" id="node34" href="$classsigc_1_1bound__const__mem__functor4.html" title="bound_const_mem_functor4 encapsulates a const method with 4 arguments and an object instance..." alt="" coords="479,895,657,965"/>
+<area shape="rect" id="node36" href="$classsigc_1_1bound__const__mem__functor5.html" title="bound_const_mem_functor5 encapsulates a const method with 5 arguments and an object instance..." alt="" coords="473,989,663,1060"/>
+<area shape="rect" id="node38" href="$classsigc_1_1bound__const__mem__functor6.html" title="bound_const_mem_functor6 encapsulates a const method with 6 arguments and an object instance..." alt="" coords="479,1085,657,1170"/>
+<area shape="rect" id="node40" href="$classsigc_1_1bound__const__mem__functor7.html" title="bound_const_mem_functor7 encapsulates a const method with 7 arguments and an object instance..." alt="" coords="479,1194,657,1279"/>
+<area shape="rect" id="node42" href="$classsigc_1_1bound__const__volatile__mem__functor0.html" title="bound_const_volatile_mem_functor0 encapsulates a const volatile method with 0 arguments and an object..." alt="" coords="469,1303,667,1359"/>
+<area shape="rect" id="node44" href="$classsigc_1_1bound__const__volatile__mem__functor1.html" title="bound_const_volatile_mem_functor1 encapsulates a const volatile method with 1 arguments and an object..." alt="" coords="469,1383,667,1439"/>
+<area shape="rect" id="node46" href="$classsigc_1_1bound__const__volatile__mem__functor2.html" title="bound_const_volatile_mem_functor2 encapsulates a const volatile method with 2 arguments and an object..." alt="" coords="469,1463,667,1519"/>
+<area shape="rect" id="node48" href="$classsigc_1_1bound__const__volatile__mem__functor3.html" title="bound_const_volatile_mem_functor3 encapsulates a const volatile method with 3 arguments and an object..." alt="" coords="452,1543,684,1599"/>
+<area shape="rect" id="node50" href="$classsigc_1_1bound__const__volatile__mem__functor4.html" title="bound_const_volatile_mem_functor4 encapsulates a const volatile method with 4 arguments and an object..." alt="" coords="469,1624,667,1695"/>
+<area shape="rect" id="node52" href="$classsigc_1_1bound__const__volatile__mem__functor5.html" title="bound_const_volatile_mem_functor5 encapsulates a const volatile method with 5 arguments and an object..." alt="" coords="469,1719,667,1789"/>
+<area shape="rect" id="node54" href="$classsigc_1_1bound__const__volatile__mem__functor6.html" title="bound_const_volatile_mem_functor6 encapsulates a const volatile method with 6 arguments and an object..." alt="" coords="453,1815,683,1885"/>
+<area shape="rect" id="node56" href="$classsigc_1_1bound__const__volatile__mem__functor7.html" title="bound_const_volatile_mem_functor7 encapsulates a const volatile method with 7 arguments and an object..." alt="" coords="459,1917,677,2002"/>
+<area shape="rect" id="node58" href="$classsigc_1_1bound__mem__functor0.html" title="bound_mem_functor0 encapsulates a method with 0 arguments and an object instance. ..." alt="" coords="469,2027,667,2068"/>
+<area shape="rect" id="node60" href="$classsigc_1_1bound__mem__functor1.html" title="bound_mem_functor1 encapsulates a method with 1 arguments and an object instance. ..." alt="" coords="467,2100,669,2141"/>
+<area shape="rect" id="node62" href="$classsigc_1_1bound__mem__functor2.html" title="bound_mem_functor2 encapsulates a method with 2 arguments and an object instance. ..." alt="" coords="469,2173,667,2229"/>
+<area shape="rect" id="node64" href="$classsigc_1_1bound__mem__functor3.html" title="bound_mem_functor3 encapsulates a method with 3 arguments and an object instance. ..." alt="" coords="469,2253,667,2309"/>
+<area shape="rect" id="node66" href="$classsigc_1_1bound__mem__functor4.html" title="bound_mem_functor4 encapsulates a method with 4 arguments and an object instance. ..." alt="" coords="469,2341,667,2397"/>
+<area shape="rect" id="node68" href="$classsigc_1_1bound__mem__functor5.html" title="bound_mem_functor5 encapsulates a method with 5 arguments and an object instance. ..." alt="" coords="469,2428,667,2499"/>
+<area shape="rect" id="node70" href="$classsigc_1_1bound__mem__functor6.html" title="bound_mem_functor6 encapsulates a method with 6 arguments and an object instance. ..." alt="" coords="469,2523,667,2593"/>
+<area shape="rect" id="node72" href="$classsigc_1_1bound__mem__functor7.html" title="bound_mem_functor7 encapsulates a method with 7 arguments and an object instance. ..." alt="" coords="469,2625,667,2696"/>
+<area shape="rect" id="node82" href="$classsigc_1_1slot0.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="482,2726,654,2753"/>
+<area shape="rect" id="node84" href="$classsigc_1_1slot1.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="487,2789,649,2831"/>
+<area shape="rect" id="node86" href="$classsigc_1_1slot2.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="487,2869,649,2911"/>
+<area shape="rect" id="node88" href="$classsigc_1_1slot3.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="473,2944,663,2985"/>
+<area shape="rect" id="node90" href="$classsigc_1_1slot4.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="479,3013,657,3069"/>
+<area shape="rect" id="node92" href="$classsigc_1_1slot5.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="479,3093,657,3149"/>
+<area shape="rect" id="node94" href="$classsigc_1_1slot6.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="473,3173,663,3229"/>
+<area shape="rect" id="node96" href="$classsigc_1_1slot7.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="479,3253,657,3324"/>
+<area shape="rect" id="node98" href="$classsigc_1_1slot_3_01T__return_07T__arg_8_8_8_08_4.html" title="Converts an arbitrary functor to a unified type which is opaque. " alt="" coords="493,3348,643,3389"/>
+<area shape="rect" id="node83" href="$classsigc_1_1slot_3_01T__return_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot0 template. " alt="" coords="762,2695,915,2751"/>
+<area shape="rect" id="node85" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot1 template. " alt="" coords="762,2775,915,2831"/>
+<area shape="rect" id="node87" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01T__arg2_00_01nil_00_01nil_00_01nil_00_01nil_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot2 template. " alt="" coords="762,2855,915,2911"/>
+<area shape="rect" id="node89" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01T__arg2_00_01T__arg3_00_01nil_00_01nil_00_01nil_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot3 template. " alt="" coords="749,2935,928,2991"/>
+<area shape="rect" id="node91" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01T__arg2_00_01T__arg3_00_01T__arg4_00_01nil_00_01nil_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot4 template. " alt="" coords="749,3015,928,3071"/>
+<area shape="rect" id="node93" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01T__arg2_00_01T__arg3_00_01T__arg4_00_01T__arg5_00_01nil_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot5 template. " alt="" coords="746,3095,931,3151"/>
+<area shape="rect" id="node95" href="$classsigc_1_1slot_3_01T__return_00_01T__arg1_00_01T__arg2_00_01T__arg3_00_01T__arg4_00_01T__arg5_00_01T__arg6_00_01nil_01_4.html" title="Convenience wrapper for the numbered sigc::slot6 template. " alt="" coords="732,3175,945,3231"/>
+<area shape="rect" id="node97" href="$classsigc_1_1slot.html" title="Convenience wrapper for the numbered sigc::slot# templates. " alt="" coords="749,3256,928,3327"/>
+<area shape="rect" id="node100" href="$classsigc_1_1bound__volatile__mem__functor0.html" title="bound_volatile_mem_functor0 encapsulates a volatile method with 0 arguments and an object instance..." alt="" coords="469,3414,667,3470"/>
+<area shape="rect" id="node102" href="$classsigc_1_1bound__volatile__mem__functor1.html" title="bound_volatile_mem_functor1 encapsulates a volatile method with 1 arguments and an object instance..." alt="" coords="469,3494,667,3550"/>
+<area shape="rect" id="node104" href="$classsigc_1_1bound__volatile__mem__functor2.html" title="bound_volatile_mem_functor2 encapsulates a volatile method with 2 arguments and an object instance..." alt="" coords="469,3574,667,3630"/>
+<area shape="rect" id="node106" href="$classsigc_1_1bound__volatile__mem__functor3.html" title="bound_volatile_mem_functor3 encapsulates a volatile method with 3 arguments and an object instance..." alt="" coords="469,3655,667,3725"/>
+<area shape="rect" id="node108" href="$classsigc_1_1bound__volatile__mem__functor4.html" title="bound_volatile_mem_functor4 encapsulates a volatile method with 4 arguments and an object instance..." alt="" coords="469,3749,667,3820"/>
+<area shape="rect" id="node110" href="$classsigc_1_1bound__volatile__mem__functor5.html" title="bound_volatile_mem_functor5 encapsulates a volatile method with 5 arguments and an object instance..." alt="" coords="469,3844,667,3915"/>
+<area shape="rect" id="node112" href="$classsigc_1_1bound__volatile__mem__functor6.html" title="bound_volatile_mem_functor6 encapsulates a volatile method with 6 arguments and an object instance..." alt="" coords="469,3939,667,4025"/>
+<area shape="rect" id="node114" href="$classsigc_1_1bound__volatile__mem__functor7.html" title="bound_volatile_mem_functor7 encapsulates a volatile method with 7 arguments and an object instance..." alt="" coords="469,4049,667,4134"/>
+</map>

@@ -3,7 +3,9 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2016, assimp team
+Copyright (c) 2006-2019, assimp team
+
+
 
 All rights reserved.
 
@@ -40,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 #include "UnitTestPCH.h"
 
-#include <fast_atof.h>
+#include <assimp/fast_atof.h>
 
 namespace {
 
@@ -179,19 +181,10 @@ protected:
 };
 
 struct FastAtofWrapper {
-    float operator()(const char* str) { return Assimp::fast_atof(str); }
-};
-
-struct FastAtodWrapper {
-    double operator()(const char* str) { return Assimp::fast_atod(str); }
+    ai_real operator()(const char* str) { return Assimp::fast_atof(str); }
 };
 
 TEST_F(FastAtofTest, FastAtof)
 {
-    RunTest<float>(FastAtofWrapper());
-}
-
-TEST_F(FastAtofTest, FastAtod)
-{
-    RunTest<double>(FastAtodWrapper());
+    RunTest<ai_real>(FastAtofWrapper());
 }

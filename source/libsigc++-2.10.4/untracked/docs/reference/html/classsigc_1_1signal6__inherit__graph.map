@@ -1,0 +1,6 @@
+<map id="sigc::signal6&lt; T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_accumulator &gt;" name="sigc::signal6&lt; T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_accumulator &gt;">
+<area shape="rect" id="node4" href="$classsigc_1_1signal_3_01T__return_07T__arg1_00_01T__arg2_00_01T__arg3_00_01T__arg4_00_01T__arg5_dace8c5b03b250e13cd615dbc3de0ac4.html" title="Convenience wrapper for the numbered sigc::signal6 template. " alt="" coords="577,5,756,76"/>
+<area shape="rect" id="node5" href="$classsigc_1_1signal_3_01T__return_00_01T__arg1_00_01T__arg2_00_01T__arg3_00_01T__arg4_00_01T__are33def4d0c1a12dcbfd220489302db67.html" title="Convenience wrapper for the numbered sigc::signal6 template. " alt="" coords="577,100,756,171"/>
+<area shape="rect" id="node2" href="$structsigc_1_1signal__base.html" title="Base class for the sigc::signal# templates. " alt="" coords="169,75,303,102"/>
+<area shape="rect" id="node3" href="$structsigc_1_1trackable.html" title="Base class for objects with auto&#45;disconnection. " alt="" coords="5,75,121,102"/>
+</map>
