@@ -98,6 +98,9 @@ libsigc++ must be built in both debug and release mode!
    Command Prompt for VS 2019')
 1. Navigate to the pioneer-thirdparty/source/libsigc++-2.10.4/MSVC_NMake
    directory
-1. Run nmake: `nmake /f Makefile.vc CFG=Release`
-1. Copy the dll and lib files to pioneer-thirdparty/win32/*
+1. Run nmake: `nmake /f Makefile.vc CFG=Release PREFIX=install install`
+1. Copy the dll and lib files from install/bin and install/lib to pioneer-thirdparty/win32/*
+
+For new versions of libsigc++, copy the install/include/sigc++-2.0 directory to pioneer-thirdparty/win32/include
+ and (sigc++ source dir)/untracked/MSVC_NMake/sigc++config.h to pioneer-thirdparty/win32/include/sigc++config.h
 
