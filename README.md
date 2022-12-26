@@ -64,6 +64,10 @@ appropriate SDL headers and libraries. SDL must be built first.
 1. Copy files from sd2_image/VisualC/*/Release to the appropriate
    pioneer-thirdparty/win32 folders
 
+### SDL2 Net ###
+
+Follow the instructions for SDL2 above in the `pioneer-thirdparty/source/sdl2_net` directory.
+
 ### libogg ###
 
 1. Open an appropriate Visual Studio command prompt (ie. 'x64 Native Tools
@@ -92,7 +96,7 @@ appropriate SDL headers and libraries. SDL must be built first.
 
 ### libsigc++ ###
 
-libsigc++ must be built in both debug and release mode! 
+libsigc++ must be built in both debug and release mode!
 
 1. Open an appropriate Visual Studio command prompt (ie. 'x64 Native Tools
    Command Prompt for VS 2019')
@@ -103,4 +107,3 @@ libsigc++ must be built in both debug and release mode!
 
 For new versions of libsigc++, copy the install/include/sigc++-2.0 directory to pioneer-thirdparty/win32/include
  and (sigc++ source dir)/untracked/MSVC_NMake/sigc++config.h to pioneer-thirdparty/win32/include/sigc++config.h
-
