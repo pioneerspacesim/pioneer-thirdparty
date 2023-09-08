@@ -1,0 +1,3 @@
+# temporary and intermediate files for assimp
+source/assimp/.vs/
+source/assimp/out/

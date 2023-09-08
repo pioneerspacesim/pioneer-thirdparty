@@ -24,16 +24,30 @@ Required development environment:
 
 ### libassimp ###
 
-1. Open an appropriate Visual Studio command prompt (ie. 'x64 Native Tools
-   Command Prompt for VS 2019')
-1. Navigate to the pioneer-thirdparty/source/assimp directory
-1. Create a build folder and enter it
-1. Configure cmake: `cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -DASSIMP_BUILD_ASSIMP_TOOLS=OFF`
-1. Run the build: `ninja`
-1. Install: `ninja install`
-1. Copy the files from build/install to the appropriate folders:
-   - install/bin/*.dll -> pioneer-thirdparty/win32/bin/x64/vs2019
-   - install/lib/*.lib -> pioneer-thirdparty/win32/lib/x64/vs2019
+libassimp must be built in both debug and release mode!
+
+1. Build and install the library
+   - From the command line
+     1. Open an appropriate Visual Studio command prompt (ie. 'x64 Native Tools
+        Command Prompt for VS 2019')
+     1. Navigate to the pioneer-thirdparty/source/assimp directory
+     1. Create a build folder and enter it
+     1. Configure cmake: `cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -DASSIMP_BUILD_ASSIMP_TOOLS=OFF`
+     1. Run the build: `ninja`
+     1. Install: `ninja install`
+     1. Copy the files from build/install to the appropriate folders:
+       - install/bin/x64/vs2019/assimp-vc142-mt*.dll -> pioneer-thirdparty/win32/bin/x64/vs2019
+       - install/lib/x64/vs2019/assimo-vc142-mt*.lib -> pioneer-thirdparty/win32/lib/x64/vs2019
+
+   - From within Visual Studio
+     1. Open the pioneer-thirdparty/source/assimp directory as a folder
+     1. Build the x64-debug configuration
+     1. Install the x64-debug configuration (right click on the assimp CMake project 
+        and select install)
+     1. Repeat build and install for the x64-release configuration
+     1. Copy the files from out/install to the appropriate folders:
+       - out/install/bin/assimp-vc142-mt*.dll -> pioneer-thirdparty/win32/bin/x64/vs2019
+       - out/install/lib/assimp-vc142-mt*.lib -> pioneer-thirdparty/win32/lib/x64/vs2019
 
 ### FreeType2 ###
 
