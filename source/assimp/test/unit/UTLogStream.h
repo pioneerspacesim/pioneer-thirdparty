@@ -3,8 +3,7 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2019, assimp team
-
+Copyright (c) 2006-2025, assimp team
 
 All rights reserved.
 
@@ -56,7 +55,7 @@ public:
 
     virtual void write(const char* message) {
         if ( nullptr != message ) {
-            m_messages.push_back( std::string( message ) );
+            m_messages.emplace_back(message);
         }
     }
 

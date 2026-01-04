@@ -3,7 +3,7 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2019, assimp team
+Copyright (c) 2006-2025, assimp team
 
 All rights reserved.
 
@@ -40,32 +40,32 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 #include "UnitTestPCH.h"
 #include <assimp/cexport.h>
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
 #include <assimp/postprocess.h>
+#include <assimp/scene.h>
+#include <assimp/Importer.hpp>
 
 using namespace ::Assimp;
 
 class BlenderWorkTest : public ::testing::Test {
 public:
-    virtual void SetUp()
-    {
+    BlenderWorkTest() : im(nullptr) {}
+    ~BlenderWorkTest() override = default;
+
+    void SetUp() override {
         im = new Assimp::Importer();
     }
 
-    virtual void TearDown()
-    {
+    void TearDown() override {
         delete im;
     }
 
 protected:
-
-    Assimp::Importer* im;
+    Assimp::Importer *im;
 };
 
-TEST_F(BlenderWorkTest,work_279) {
-    const aiScene* pTest = im->ReadFile(ASSIMP_TEST_MODELS_DIR "/BLEND/test_279.blend", aiProcess_ValidateDataStructure);
-    ASSERT_TRUE(pTest != NULL);
+TEST_F(BlenderWorkTest, work_279) {
+    const aiScene *pTest = im->ReadFile(ASSIMP_TEST_MODELS_DIR "/BLEND/test_279.blend", aiProcess_ValidateDataStructure);
+    ASSERT_TRUE(pTest != nullptr);
 
     // material has 2 diffuse textures
     ASSERT_TRUE(pTest->HasMaterials());

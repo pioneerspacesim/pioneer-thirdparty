@@ -3,9 +3,7 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2019, assimp team
-
-
+Copyright (c) 2006-2025, assimp team
 
 All rights reserved.
 
@@ -41,10 +39,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ---------------------------------------------------------------------------
 */
 
-#include "UnitTestPCH.h"
 #include "AbstractImportExportBase.h"
-#include <assimp/Importer.hpp>
+#include "UnitTestPCH.h"
 #include <assimp/postprocess.h>
+#include <assimp/Importer.hpp>
 
 using namespace Assimp;
 
@@ -52,8 +50,7 @@ class utNFFImportExport : public AbstractImportExportBase {
 public:
     virtual bool importerTest() {
         Assimp::Importer importer;
-        const aiScene *scene = importer.ReadFile(ASSIMP_TEST_MODELS_DIR "/NFF/NFF/ManyEarthsNotJustOne.nff", 0);
-        return true;
+        const aiScene *scene = importer.ReadFile(ASSIMP_TEST_MODELS_DIR "/NFF/ManyEarthsNotJustOne.nff", 0);
         return nullptr != scene;
     }
 };

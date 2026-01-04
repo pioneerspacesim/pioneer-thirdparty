@@ -3,9 +3,7 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2019, assimp team
-
-
+Copyright (c) 2006-2025, assimp team
 
 All rights reserved.
 
@@ -49,25 +47,21 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 namespace Assimp {
 
-class TestModelFacttory {
+class TestModelFactory {
 public:
-    TestModelFacttory() {
-        // empty
-    }
+    TestModelFactory() = default;
 
-    ~TestModelFacttory() {
-        // empty
-    }
+    ~TestModelFactory() = default;
 
     static aiScene *createDefaultTestModel( float &opacity ) {
-        aiScene *scene( new aiScene );
+        auto *scene = new aiScene;
         scene->mNumMaterials = 1;
         scene->mMaterials = new aiMaterial*[scene->mNumMaterials];
         scene->mMaterials[ 0 ] = new aiMaterial;
         aiColor3D color( 1, 0, 0 );
         EXPECT_EQ( AI_SUCCESS, scene->mMaterials[ 0 ]->AddProperty( &color, 1, AI_MATKEY_COLOR_DIFFUSE ) );
 
-        ::srand( static_cast< unsigned int >( ::time( NULL ) ) );
+        ::srand(static_cast<unsigned int>(::time(nullptr)));
         opacity = float( rand() ) / float( RAND_MAX );
         EXPECT_EQ( AI_SUCCESS, scene->mMaterials[ 0 ]->AddProperty( &opacity, 1, AI_MATKEY_OPACITY ) );
 
@@ -89,7 +83,7 @@ public:
         scene->mMeshes[ 0 ]->mFaces[ 0 ].mIndices[ 1 ] = 1;
         scene->mMeshes[ 0 ]->mFaces[ 0 ].mIndices[ 2 ] = 2;
 
-        scene->mRootNode = new aiNode();
+        scene->mRootNode = new aiNode;
         scene->mRootNode->mNumMeshes = 1;
         scene->mRootNode->mMeshes = new unsigned int[1]{ 0 };
 

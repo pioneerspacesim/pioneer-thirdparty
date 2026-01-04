@@ -3,8 +3,7 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2019, assimp team
-
+Copyright (c) 2006-2025, assimp team
 
 All rights reserved.
 
@@ -61,7 +60,7 @@ public:
     virtual ~TestIOSystem() {
         // empty
     }
-    
+
     virtual bool Exists( const char* ) const {
         return true;
     }
@@ -73,7 +72,7 @@ public:
     virtual IOStream* Open( const char* pFile, const char* pMode = "rb" ) {
         EXPECT_NE( nullptr, pFile );
         EXPECT_NE( nullptr, pMode );
-        return NULL;
+        return nullptr;
     }
 
     virtual void Close( IOStream* pFile ) {

@@ -1,4 +1,4 @@
-﻿AC3Db
+AC3Db
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
 OBJECT world
 kids 2
@@ -9,7 +9,7 @@ kids 0
 OBJECT poly
 name "中国菜"
 loc -0.0624103 -0.012381 0.0558408
-texture "./../LWO/LWO2/MappingModes/earthSpherical.jpg"
+texture "earthSpherical.jpg"
 crease 45.000000
 numvert 134
 -0.00202139 0.0563461 0

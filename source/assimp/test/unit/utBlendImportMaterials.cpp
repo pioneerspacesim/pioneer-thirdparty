@@ -3,9 +3,7 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2019, assimp team
-
-
+Copyright (c) 2006-2025, assimp team
 
 All rights reserved.
 
@@ -43,48 +41,43 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "UnitTestPCH.h"
 
 #include <assimp/cexport.h>
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
 #include <assimp/postprocess.h>
+#include <assimp/scene.h>
+#include <assimp/Importer.hpp>
 
 class BlendImportMaterials : public ::testing::Test {
 public:
-
-    virtual void SetUp()
-    {
+    void SetUp() override {
         im = new Assimp::Importer();
     }
 
-    virtual void TearDown()
-    {
+    void TearDown() override {
         delete im;
     }
 
 protected:
-
-    Assimp::Importer* im;
+    Assimp::Importer *im;
 };
 
 // ------------------------------------------------------------------------------------------------
-TEST_F(BlendImportMaterials, testImportMaterial)
-{
-    const aiScene* pTest = im->ReadFile(ASSIMP_TEST_MODELS_DIR "/BLEND/BlenderMaterial_269.blend", aiProcess_ValidateDataStructure);
-    ASSERT_TRUE(pTest != NULL);
+TEST_F(BlendImportMaterials, testImportMaterial) {
+    const aiScene *pTest = im->ReadFile(ASSIMP_TEST_MODELS_DIR "/BLEND/BlenderMaterial_269.blend", aiProcess_ValidateDataStructure);
+    ASSERT_TRUE(pTest != nullptr);
     ASSERT_TRUE(pTest->HasMaterials());
 
     ASSERT_EQ(1U, pTest->mNumMaterials);
 
     auto alpha = pTest->mMaterials[0];
 
-    #define ASSERT_PROPERTY_EQ(expected, key, var) \
-        auto var = expected; \
-        ASSERT_EQ(aiReturn_SUCCESS, alpha->Get("$mat.blend." key, 0, 0, var)); \
-        ASSERT_EQ(expected, var);
+#define ASSERT_PROPERTY_EQ(expected, key, var)                             \
+    auto var = expected;                                                   \
+    ASSERT_EQ(aiReturn_SUCCESS, alpha->Get("$mat.blend." key, 0, 0, var)); \
+    ASSERT_EQ(expected, var);
 
-    #define ASSERT_PROPERTY_FLOAT_EQ(expected, key, var) \
-        auto var = expected; \
-        ASSERT_EQ(aiReturn_SUCCESS, alpha->Get("$mat.blend." key, 0, 0, var)); \
-        ASSERT_FLOAT_EQ(expected, var);
+#define ASSERT_PROPERTY_FLOAT_EQ(expected, key, var)                       \
+    auto var = expected;                                                   \
+    ASSERT_EQ(aiReturn_SUCCESS, alpha->Get("$mat.blend." key, 0, 0, var)); \
+    ASSERT_FLOAT_EQ(expected, var);
 
     ASSERT_PROPERTY_EQ(aiColor3D(0.1f, 0.2f, 0.3f), "diffuse.color", diffuseColor);
     ASSERT_PROPERTY_EQ(0.4f, "diffuse.intensity", diffuseIntensity);
@@ -126,10 +119,9 @@ TEST_F(BlendImportMaterials, testImportMaterial)
     ASSERT_PROPERTY_FLOAT_EQ(0.87f, "mirror.glossAnisotropic", mirrorGlossAnisotropic);
 }
 
-TEST_F(BlendImportMaterials, testImportMaterialwith2texturesAnd2TexCoordMappings)
-{
-    const aiScene* pTest = im->ReadFile(ASSIMP_TEST_MODELS_DIR "/BLEND/plane_2_textures_2_texcoords_279.blend", aiProcess_ValidateDataStructure);
-    ASSERT_TRUE(pTest != NULL);
+TEST_F(BlendImportMaterials, testImportMaterialwith2texturesAnd2TexCoordMappings) {
+    const aiScene *pTest = im->ReadFile(ASSIMP_TEST_MODELS_DIR "/BLEND/plane_2_textures_2_texcoords_279.blend", aiProcess_ValidateDataStructure);
+    ASSERT_TRUE(pTest != nullptr);
 
     // material has 2 diffuse textures
     ASSERT_TRUE(pTest->HasMaterials());

@@ -3,7 +3,7 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2019, assimp team
+Copyright (c) 2006-2025, assimp team
 
 All rights reserved.
 
@@ -38,13 +38,13 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ---------------------------------------------------------------------------
 */
-#include "UnitTestPCH.h"
 #include "AbstractImportExportBase.h"
+#include "UnitTestPCH.h"
 
-#include <assimp/Importer.hpp>
-#include <assimp/Exporter.hpp>
 #include <assimp/postprocess.h>
 #include <assimp/scene.h>
+#include <assimp/Exporter.hpp>
+#include <assimp/Importer.hpp>
 
 using namespace Assimp;
 
@@ -57,8 +57,30 @@ public:
         const aiScene *scene = importer.ReadFile(ASSIMP_TEST_MODELS_DIR "/OBJ/spider.obj", aiProcess_ValidateDataStructure);
 
         Exporter exporter;
-        aiReturn res = exporter.Export(scene, "assjson", "./spider_test.json");
-        return aiReturn_SUCCESS == res;
+        const char *testFileName = "./spider_test.json";
+        aiReturn res = exporter.Export(scene, "assjson", testFileName);
+        if (aiReturn_SUCCESS != res) {
+            return false;
+        }
+
+        Assimp::ExportProperties exportProperties;
+        exportProperties.SetPropertyBool("JSON_SKIP_WHITESPACES", true);
+        const char *testNoWhitespaceFileName = "./spider_test_nowhitespace.json";
+        aiReturn resNoWhitespace = exporter.Export(scene, "assjson", testNoWhitespaceFileName, 0u, &exportProperties);
+        if (aiReturn_SUCCESS != resNoWhitespace) {
+            return false;
+        }
+
+        // Cleanup, remove generated json
+        if (0 != std::remove(testFileName)) {
+            return false;
+        }
+
+        if (0 != std::remove(testNoWhitespaceFileName)) {
+            return false;
+        }
+
+        return true;
     }
 };
 
